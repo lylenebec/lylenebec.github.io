@@ -307,7 +307,7 @@ body {
     left: 966px;
     width: 260px;
     height: 122px;
-    background-image: url('main_book.png');
+    background-image: url('https://github.com/lylenebec/lylenebec.github.io/blob/main/img/main_book.png');
     background-size: cover;
     animation: zoomIn 1s ease-in-out forwards;
     z-index: 3;
@@ -392,3 +392,4 @@ body {
         align-items: center;
     }
 }
+
