@@ -186,7 +186,7 @@ body {
     left: 430px;
     width: 790px;
     height: 225px;
-    background-image: url('path_to_png_1.png');
+    background-image: url('img/path_to_png_1.png');
     background-size: cover;
     animation: zoomIn 1s ease-in-out forwards;
 }
@@ -307,7 +307,7 @@ body {
     left: 966px;
     width: 260px;
     height: 122px;
-    background-image: url('https://github.com/lylenebec/lylenebec.github.io/blob/main/img/main_book.png');
+    background-image: url('img/main_book.png');
     background-size: cover;
     animation: zoomIn 1s ease-in-out forwards;
     z-index: 3;
@@ -317,7 +317,7 @@ body {
     left: 160px;
     width: 740px;
     height: 740px;
-    background-image: url('https://github.com/lylenebec/lylenebec.github.io/blob/main/img/main_head.jpg');
+    background-image: url('img/main_head.jpg');
     background-size: cover;
     animation: zoomIn 1s ease-in-out forwards;
     z-index: 3;
@@ -392,5 +392,6 @@ body {
         align-items: center;
     }
 }
+
 
 
