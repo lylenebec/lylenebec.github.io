@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyle Nebec's Journal</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function redirectToPage2() {
+            window.location.href = 'Page_2_ByMyself.html';
+        }
+        function redirectToPage3() {
+            window.location.href = 'Page_3_Content_List.html';
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const clickableElements1 = document.querySelectorAll('.text-1');
+            clickableElements1.forEach(element => {
+                element.addEventListener('click', redirectToPage2);
+            });
+            const clickableElements2 = document.querySelectorAll('.text-8');
+            clickableElements2.forEach(element => {
+                element.addEventListener('click', redirectToPage3);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+        <div class="text-1">О себе, о задумках, о проектах</div>
+        <div class="text-2">Слева художник Архип Куинжи 1840-1910 г. А справа я (Lyle Nebec) 1985г. на вечере встреч выпускников 2010-го года в своей любимой и безвременно меня покинувшей кошемировой кофте. Правда похожи? Темы под картинками - кликабельные переходы. В будущем вообще все картинки оживут, а сам сайт превратится в толстенький интерактивный журнальчик.</div>
+        <div class="shape-3"></div>
+        <div class="shape-4"></div>
+        <div class="shape-5"></div>
+        <div class="group-1">
+            <div class="shape-6"></div>
+            <div class="text-3">29</div>
+            <div class="text-4">Апреля</div>
+            <div class="text-5">2025</div>
+        </div>
+        <div class="text-6">Там где дух живой дышит</div>
+        <div class="png-1"></div>
+        <div class="shape-7"></div>
+        <div class="text-7">Клик на тему</div>
+        <div class="shape-8"></div>
+        <div class="text-8">Лист содержания</div>
+        <div class="text-9">Тут должно быть описание</div>
+        <div class="text-10">Lyle Nebec`s</div>
+        <div class="text-11">journal</div>
+        <div class="png-2"></div>
+        <div class="jpg-1"></div>
+    </div>
+</body>
+</html>
