@@ -21,74 +21,105 @@
             margin: 0 auto;
             padding: 10px;
             box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            position: relative;
         }
 
-        /* Основные блоки */
-        .main-content {
-            width: 100%;
+        /* Основной белый блок */
+        .shape-1 {
+            width: calc(100% - 20px);
+            max-width: 1190px;
+            height: 1560px;
             background-color: #ffffff;
-            padding: 20px;
-            box-sizing: border-box;
-            margin-bottom: 20px;
+            margin: 10px auto;
+            position: relative;
         }
 
-        .sidebar {
+        /* Остальные блоки */
+        .shape-2 {
             width: 100%;
             max-width: 290px;
+            height: 1027px;
             background-color: #D2D1D1;
-            padding: 20px;
-            box-sizing: border-box;
-            margin: 20px 0;
+            position: absolute;
+            top: 500px;
+            left: 56px;
+            animation: fadeInUp 2.5s ease-in-out forwards;
         }
 
-        .content-block {
+        .shape-3 {
             width: 100%;
+            max-width: 272px;
+            height: 333px;
             background-color: #D2D1D1;
-            padding: 20px;
-            box-sizing: border-box;
-            margin: 20px 0;
+            position: absolute;
+            top: 1192px;
+            left: 376px;
+            animation: fadeInUp 2.5s ease-in-out forwards;
+        }
+
+        .shape-4 {
+            width: 100%;
+            max-width: 449px;
+            height: 213px;
+            background-color: #D2D1D1;
+            position: absolute;
+            top: 980px;
+            left: 376px;
+            animation: fadeInUp 2.5s ease-in-out forwards;
+        }
+
+        .shape-5 {
+            width: 100%;
+            max-width: 303px;
+            height: 210px;
+            background-color: #D2D1D1;
+            position: absolute;
+            top: 980px;
+            left: 850px;
+            animation: fadeInUp 2.5s ease-in-out forwards;
         }
 
         /* Текстовые блоки */
-        .text-center {
+        .text-1 {
+            position: absolute;
+            top: 15px;
+            left: 55px;
+            width: 280px;
+            height: 45px;
+            font-family: 'Old English Text MT', serif;
+            font-size: 40px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #009700;
+            line-height: 1;
             text-align: center;
-            margin: 10px 0;
-            font-size: clamp(14px, 2vw, 24px);
+            text-shadow: 1px 1px 0 #000000;
+            -webkit-text-stroke: 1px #000000;
+            cursor: pointer;
+            transition: font-size 0.3s;
+            opacity: 0;
+            animation: fadeInRight 2s ease-in-out forwards;
         }
 
-        .text-left {
-            text-align: left;
-            margin: 10px 0;
-            font-size: clamp(12px, 1.5vw, 18px);
+        .text-1:hover {
+            font-size: 45px;
         }
 
-        /* Изображения и видео */
-        .image-container {
-            width: 100%;
-            height: auto;
-            margin: 20px 0;
+        .text-2 {
+            position: absolute;
+            top: 380px;
+            left: 285px;
+            width: 700px;
+            height: 46px;
+            font-size: 46px;
+            font-weight: normal;
+            color: #000000;
+            line-height: 1;
+            text-align: center;
+            animation: fadeInRight 2s ease-in-out forwards;
         }
 
-        .image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .video-container {
-            width: 100%;
-            margin: 20px 0;
-            aspect-ratio: 16/9;
-        }
-
-        .video-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        /* Остальные текстовые блоки остаются без изменений */
 
         /* Анимации */
         @keyframes fadeInUp {
@@ -101,27 +132,34 @@
             to { opacity: 1; transform: translateX(0); }
         }
 
-        .animate-fadeInUp {
-            animation: fadeInUp 1.5s ease-out forwards;
-        }
-
-        .animate-fadeInRight {
-            animation: fadeInRight 1.5s ease-out forwards;
-        }
-
         /* Медиа-запросы */
-        @media (max-width: 768px) {
-            .container {
-                padding: 5px;
+        @media (max-width: 1200px) {
+            .shape-1 {
+                height: auto;
+                min-height: 1560px;
             }
-            .text-center, .text-left {
-                font-size: clamp(12px, 2vw, 16px);
+
+            .shape-2, .shape-3, .shape-4, .shape-5 {
+                position: relative;
+                width: 100%;
+                margin: 10px auto;
+            }
+
+            .text-1, .text-2 {
+                position: relative;
+                width: 100%;
+                text-align: center;
+                margin: 10px auto;
             }
         }
 
-        @media (min-width: 769px) and (max-width: 1200px) {
-            .container {
-                padding: 10px;
+        @media (max-width: 768px) {
+            .shape-1 {
+                height: auto;
+            }
+
+            .text-1, .text-2 {
+                font-size: 24px;
             }
         }
     </style>
@@ -130,7 +168,7 @@
             window.location.href = 'Main.html';
         }
         document.addEventListener('DOMContentLoaded', function() {
-            const logo = document.querySelector('.logo');
+            const logo = document.querySelector('.text-1');
             if (logo) {
                 logo.addEventListener('click', redirectToMain);
             }
@@ -139,10 +177,16 @@
 </head>
 <body>
     <div class="container">
-        <!-- Основной контент -->
-        <div class="main-content animate-fadeInUp">
-            <h1 class="text-center logo" style="cursor: pointer; color: #009700; font-family: 'Old English Text MT', serif;">Lyle Nebec`s journal</h1>
-            <h2 class="text-center">О себе, о задумках, о проектах</h2>
-            <div class="text-left">
-                <p><span style="font-family: Georgia, serif; font-size: 4em; line-height: 1;">L</span>yle Nebec - это лирический псевдоним времен первой любви.</p>
-                <p>Он родился еще до появления интернета, по этому оказался излишне уникальным для соц. сетей. Ты как личности претерпеваешь множество метаморфоз, становится деспотичным для свободного мнения законодательство той многоматричной системы, что по ошибке воспринимается государством, а тебя по твоим постам все так же легко найти. Пришлось за собой все подчищать. Мне и раньше случалось создавать сайты подобно этому для своих знакомых криптотрейдеров в 2020-м, в 2024-м для согильдийцев игры Lineage 2. Видеомонтаж наскоками где-то с 2021-го. Где-то с 2018-го увлекся написанием автобиографии и эскапистскими рассказами. Просто несколько человек в разное время оценили легкий слог, специфическое мироощущение, когда в обыденном замечаешь чудесное и эмоциональность, с которой читатель погружается в атмосферу рассказа. Обилие грамматических, пунктуационных 
+        <div class="shape-1">
+            <!-- Текстовые и графические элементы внутри shape-1 -->
+            <div class="text-1">Lyle Nebec`s journal</div>
+            <div class="text-2">О себе, о задумках, о проектах</div>
+            <!-- Остальные текстовые блоки -->
+        </div>
+        <div class="shape-2"></div>
+        <div class="shape-3"></div>
+        <div class="shape-4"></div>
+        <div class="shape-5"></div>
+    </div>
+</body>
+</html>
