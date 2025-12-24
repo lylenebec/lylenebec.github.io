@@ -1,157 +1,123 @@
-body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #555555;
-    font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyle Nebec's Journal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #555555;
+            font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
+        }
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    padding: 20px;
-    box-sizing: border-box;
-}
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-/* Основной фон */
-.shape-1 {
-    width: 100%;
-    height: auto;
-    background-color: #ffffff;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
-}
+        /* Основной фон */
+        .shape-1 {
+            width: 100%;
+            height: auto;
+            background-color: #ffffff;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-/* Серые блоки */
-.shape-2, .shape-3, .shape-4, .shape-5 {
-    background-color: #D2D1D1;
-    padding: 15px;
-    box-sizing: border-box;
-    margin: 10px 0;
-}
+        /* Серые блоки */
+        .shape-2, .shape-3, .shape-4, .shape-5 {
+            background-color: #D2D1D1;
+            padding: 15px;
+            box-sizing: border-box;
+            margin: 10px 0;
+        }
 
-/* Черные линии */
-.shape-6, .shape-7, .shape-8, .shape-9, .shape-10, .shape-11, .shape-12, .shape-13, .shape-14 {
-    background-color: #000000;
-}
+        /* Черные линии */
+        .shape-6, .shape-7, .shape-8, .shape-9, .shape-10, .shape-11, .shape-12, .shape-13, .shape-14 {
+            background-color: #000000;
+        }
 
-/* Текстовые блоки */
-.text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
-    margin: 10px 0;
-    padding: 5px;
-}
+        /* Текстовые блоки */
+        .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
+            margin: 10px 0;
+            padding: 5px;
+        }
 
-/* Картинка */
-.png-1 {
-    width: 100%;
-    height: 200px; /* или другая высота */
-    margin: 10px 0;
-    display: block;
-    overflow: hidden;
-}
+        /* Блок для картинки */
+        .png-1 {
+            width: 100%;
+            height: 200px; /* Явная высота */
+            margin: 10px 0;
+            overflow: hidden;
+        }
 
-.png-1 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-}
+        .png-1 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-/* Видео-контейнеры */
-.video-container1, .video-container2 {
-    width: 100%;
-    margin: 10px 0;
-    aspect-ratio: 16/9; /* Сохраняет пропорции видео */
-}
+        /* Видео-контейнеры */
+        .video-container1, .video-container2 {
+            width: 100%;
+            margin: 10px 0;
+            aspect-ratio: 16/9;
+        }
 
-.video-container1 iframe, .video-container2 iframe {
-    width: 100%;
-    height: 100%;
-}
+        .video-container1 iframe, .video-container2 iframe {
+            width: 100%;
+            height: 100%;
+        }
 
-/* Анимации */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInRight {
-    from { opacity: 0; transform: translateX(50px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-/* Медиа-запросы */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-    .shape-2, .shape-3, .shape-4, .shape-5 {
-        width: 100%;
-    }
-    .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
-        font-size: 14px;
-    }
-}
-       @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(1000px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Анимации */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(1000px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-150px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-150px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-1000px);
+            from { opacity: 0; transform: translateX(-1000px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Медиа-запросы */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
             }
-            to {
-                opacity: 1;
-                transform: translateX(0);
+            .shape-2, .shape-3, .shape-4, .shape-5 {
+                width: 100%;
+            }
+            .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
+                font-size: 14px;
             }
         }
-         </style>
+    </style>
     <script>
         function redirectToMain() {
             window.location.href = 'Main.html';
@@ -198,7 +164,12 @@ body {
         <div class="text-16">Это сильно опечалит всех инфлюэнсеров, всех ботов, троллей, мошенников, агентов ФСБ и прочих властных личностей желающих меня на свой жертвенник во имя порядка, где даже и там беспорядок. Хотя бы просто потому что изменился у обманщиков подход со времен</div>
         <div class="text-17">моего детства. Раньше время от них требовала персональной отдачи, чтобы обмануть. А сейчас открываешь рассылку о том что тебе досталось наследство и надо денег перечислить, смотришь количество адресов и разочарованно удаляешь. Никакого индивидуального подхода. Только владеющие НЛП томятся в ожидании, когда ты сам им принесешь свои надежды и мечты.
 Сходите с ума в индивидуальном порядке, господа, не коллективно. От этого даже интереснее встречи..</div>
-        <div class="png-1"></div>
+
+        <!-- Исправленный блок для картинки -->
+        <div class="png-1">
+            <img src="Page2_pic1.jpg" alt="Page2_pic1">
+        </div>
+
         <div class="video-container1">
             <iframe width="778" height="425" src="https://www.youtube.com/embed/LMuTfez0wn8" frameborder="0" allowfullscreen></iframe>
         </div>
@@ -208,6 +179,3 @@ body {
     </div>
 </body>
 </html>
-
-
-
