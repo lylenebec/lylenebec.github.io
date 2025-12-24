@@ -20,7 +20,7 @@
             max-width: 1200px;
             margin: 10px auto;
             position: relative;
-            height: 1560px;
+            height: 1600px;
         }
 
         /* Белый фон */
@@ -69,79 +69,6 @@
             top: 980px;
             left: 850px;
         }
-
-        /* Текстовые блоки */
-        .text-1 {
-            position: absolute;
-            top: 15px;
-            left: 55px;
-            width: 280px;
-            font-family: 'Old English Text MT', serif;
-            font-size: 40px;
-            font-weight: normal;
-            letter-spacing: 1px;
-            color: #009700;
-            line-height: 1;
-            text-align: center;
-            text-shadow: 1px 1px 0 #000000;
-            -webkit-text-stroke: 1px #000000;
-            cursor: pointer;
-            transition: font-size 0.3s;
-        }
-
-        .text-1:hover {
-            font-size: 45px;
-        }
-
-        .text-2 {
-            position: absolute;
-            top: 380px;
-            left: 285px;
-            width: 700px;
-            font-size: 46px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: center;
-        }
-
-        .text-3 {
-            position: absolute;
-            top: 506px;
-            left: 62px;
-            font-family: 'Georgia', serif;
-            font-size: 75px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-        }
-
-        .text-4 {
-            position: absolute;
-            top: 515px;
-            left: 122px;
-            width: 224px;
-            font-size: 16px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-        }
-
-        .text-5 {
-            position: absolute;
-            top: 580px;
-            left: 65px;
-            width: 280px;
-            font-size: 16px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-        }
-
-        /* Остальные текстовые блоки аналогично */
 
         /* Черные линии */
         .shape-6, .shape-7, .shape-8, .shape-9, .shape-10, .shape-11, .shape-12, .shape-13, .shape-14 {
@@ -219,8 +146,10 @@
             left: 60px;
             width: 1100px;
             height: 185px;
+            background-color: #ccc; /* Цвет фона, если изображение не загрузится */
             background-image: url('Page2_pic1.jpg');
             background-size: cover;
+            background-position: center;
         }
 
         /* Видео */
@@ -252,15 +181,175 @@
             border: none;
         }
 
-        /* Анимации */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Текстовые блоки */
+        .text {
+            position: absolute;
+            color: #000000;
+            line-height: 1.2;
         }
 
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
+        .text-1 {
+            top: 15px;
+            left: 55px;
+            width: 280px;
+            font-family: 'Old English Text MT', serif;
+            font-size: 40px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #009700;
+            text-align: center;
+            text-shadow: 1px 1px 0 #000000;
+            -webkit-text-stroke: 1px #000000;
+            cursor: pointer;
+            transition: font-size 0.3s;
+        }
+
+        .text-1:hover {
+            font-size: 45px;
+        }
+
+        .text-2 {
+            top: 380px;
+            left: 285px;
+            width: 700px;
+            font-size: 46px;
+            font-weight: normal;
+            text-align: center;
+        }
+
+        .text-3 {
+            top: 506px;
+            left: 62px;
+            font-family: 'Georgia', serif;
+            font-size: 75px;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .text-4 {
+            top: 515px;
+            left: 122px;
+            width: 224px;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .text-5 {
+            top: 580px;
+            left: 65px;
+            width: 280px;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .text-6 {
+            top: 1450px;
+            left: 100px;
+            width: 203px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .text-7 {
+            top: 1485px;
+            left: 72px;
+            width: 274px;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .text-8 {
+            top: 75px;
+            left: 480px;
+            width: 260px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .text-9 {
+            top: 75px;
+            left: 850px;
+            width: 400px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .text-10 {
+            top: 126px;
+            left: 553px;
+            width: 100px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .text-11 {
+            top: 126px;
+            left: 1000px;
+            width: 366px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .text-12 {
+            top: 986px;
+            left: 500px;
+            width: 200px;
+            font-size: 16px;
+            font-weight: semibold;
+            text-align: left;
+        }
+
+        .text-13 {
+            top: 945px;
+            left: 456px;
+            width: 610px;
+            font-size: 16px;
+            font-weight: semibold;
+            text-align: left;
+        }
+
+        .text-14 {
+            top: 1025px;
+            left: 380px;
+            font-family: 'Georgia', serif;
+            font-size: 75px;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .text-15 {
+            top: 1038px;
+            left: 442px;
+            width: 376px;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .text-16 {
+            top: 1100px;
+            left: 390px;
+            width: 435px;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .text-17 {
+            top: 1184px;
+            left: 389px;
+            width: 259px;
+            font-size: 16px;
+            font-weight: normal;
+            text-align: left;
         }
 
         /* Медиа-запросы */
@@ -273,7 +362,7 @@
                 width: 90%;
             }
 
-            .text-1, .text-2, .text-3, .text-4, .text-5 {
+            .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
                 width: 90%;
             }
 
@@ -298,16 +387,18 @@
                 margin: 10px 0;
             }
 
-            .text-1, .text-2, .text-3, .text-4, .text-5 {
+            .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
                 position: relative;
                 width: 100%;
                 font-size: 14px;
                 text-align: center;
+                margin: 10px 0;
             }
 
             .png-1 {
                 position: relative;
                 width: 100%;
+                height: auto;
             }
 
             .video-container1, .video-container2 {
@@ -346,13 +437,25 @@
         <div class="shape-13"></div>
         <div class="shape-14"></div>
 
-        <div class="text-1">Lyle Nebec`s journal</div>
-        <div class="text-2">О себе, о задумках, о проектах</div>
-        <div class="text-3">L</div>
-        <div class="text-4">yle Nebec - это лирический псевдоним времен первой любви.</div>
-        <div class="text-5">Он родился еще до появления интернета, по этому оказался излишне уникальным для соц. сетей. Ты как личности претерпеваешь множество метаморфоз, становится деспотичным для свободного мнения законодательство той многоматричной системы, что по ошибке воспринимается государством, а тебя по твоим постам все так же легко найти. Пришлось за собой все подчищать. Мне и раньше случалось создавать сайты подобно этому для своих знакомых криптотрейдеров в 2020-м, в 2024-м для согильдийцев игры Lineage 2.Видеомонтаж наскоками где-то с 2021-го. Где-то с 2018-го увлекся написанием автобиографии и эскапистскими рассказами. Просто несколько человек в разное время оценили легкий слог, специфическое мироощущение, когда в обыденном замечаешь чудесное и эмоциональность, с которой читатель погружается в атмосферу рассказа. Обилие грамматических, пунктуационных и лексических ошибок в рассказах троечника по русскому языку и литературе не стали преградой. Писать не умею, но люблю, народу нравится, а значит рассказам быть. Всякий раз когда рефлексирую от реальности, я пишу какую-нибудь заметку. Их стало много томов, а с 2022-го началась бессвязная рефлексия обо всём. По этому всякий раз когда мне хочется сбежать, я начинаю конструировать свой собственный дилетантский сайтик, игнорируя безопасность. Проза.ру оставила мне тысячи просмотров на мои рассказы, но ноль обратной связи, тогда в чём разница, если я оживлю удаленное там для малого круга лиц в малоизвестном месте?</div>
-
         <div class="png-1"></div>
+
+        <div class="text text-1">Lyle Nebec`s journal</div>
+        <div class="text text-2">О себе, о задумках, о проектах</div>
+        <div class="text text-3">L</div>
+        <div class="text text-4">yle Nebec - это лирический псевдоним времен первой любви.</div>
+        <div class="text text-5">Он родился еще до появления интернета, по этому оказался излишне уникальным для соц. сетей. Ты как личности претерпеваешь множество метаморфоз, становится деспотичным для свободного мнения законодательство той многоматричной системы, что по ошибке воспринимается государством, а тебя по твоим постам все так же легко найти. Пришлось за собой все подчищать. Мне и раньше случалось создавать сайты подобно этому для своих знакомых криптотрейдеров в 2020-м, в 2024-м для согильдийцев игры Lineage 2.Видеомонтаж наскоками где-то с 2021-го. Где-то с 2018-го увлекся написанием автобиографии и эскапистскими рассказами. Просто несколько человек в разное время оценили легкий слог, специфическое мироощущение, когда в обыденном замечаешь чудесное и эмоциональность, с которой читатель погружается в атмосферу рассказа. Обилие грамматических, пунктуационных и лексических ошибок в рассказах троечника по русскому языку и литературе не стали преградой. Писать не умею, но люблю, народу нравится, а значит рассказам быть. Всякий раз когда рефлексирую от реальности, я пишу какую-нибудь заметку. Их стало много томов, а с 2022-го началась бессвязная рефлексия обо всём. По этому всякий раз когда мне хочется сбежать, я начинаю конструировать свой собственный дилетантский сайтик, игнорируя безопасность. Проза.ру оставила мне тысячи просмотров на мои рассказы, но ноль обратной связи, тогда в чём разница, если я оживлю удаленное там для малого круга лиц в малоизвестном месте?</div>
+        <div class="text text-6">О навигации сайта</div>
+        <div class="text text-7">Возврат на главную страницу осуществляется кликом логотипа.</div>
+        <div class="text text-8">Редактор журнала: Lyle Nebec</div>
+        <div class="text text-9">Для корреспонденции: lefen@inbox.ru</div>
+        <div class="text text-10">Страница 1</div>
+        <div class="text text-11">Дата: 30.03.2024г.</div>
+        <div class="text text-12">О социальных сетях</div>
+        <div class="text text-13">Это я так шутил над складским персоналом в компании 20А, пока там работал.</div>
+        <div class="text text-14">К</div>
+        <div class="text text-15">ак идеалист считаю, что не должно быть социальных сетей, а должны быть персональные страницы</div>
+        <div class="text text-16">Это сильно опечалит всех инфлюэнсеров, всех ботов, троллей, мошенников, агентов ФСБ и прочих властных личностей желающих меня на свой жертвенник во имя порядка, где даже и там беспорядок. Хотя бы просто потому что изменился у обманщиков подход со времен</div>
+        <div class="text text-17">моего детства. Раньше время от них требовала персональной отдачи, чтобы обмануть. А сейчас открываешь рассылку о том что тебе досталось наследство и надо денег перечислить, смотришь количество адресов и разочарованно удаляешь. Никакого индивидуального подхода. Только владеющие НЛП томятся в ожидании, когда ты сам им принесешь свои надежды и мечты.<br>Сходите с ума в индивидуальном порядке, господа, не коллективно. От этого даже интереснее встречи..</div>
 
         <div class="video-container1">
             <iframe src="https://www.youtube.com/embed/LMuTfez0wn8" allowfullscreen></iframe>
