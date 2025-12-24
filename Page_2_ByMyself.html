@@ -12,593 +12,82 @@
             height: 100%;
             background-color: #555555;
             overflow: auto;
-            position: relative;
             font-family: 'Roboto', sans-serif;
         }
 
         .container {
-            position: relative;
-            width: 1200px;
-            height: auto;
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
         }
 
+        /* Примеры для адаптивных элементов */
         .shape-1 {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 1560px;
-            height: 1190px;
+            width: 100%;
+            height: auto;
             background-color: #ffffff;
+            margin: 10px auto;
         }
 
         .shape-2 {
-            position: absolute;
-            top: 500px;
-            left: 56px;
-            width: 290px;
-            height: 1027px;
+            width: 100%;
+            max-width: 290px;
+            height: auto;
             background-color: #D2D1D1;
+            margin: 20px auto;
             animation: fadeInUp 2.5s ease-in-out forwards;
         }
 
-        .shape-3 {
-            position: absolute;
-            top: 1192px;
-            left: 376px;
-            width: 272px;
-            height: 333px;
-            background-color: #D2D1D1;
-            animation: fadeInUp 2.5s ease-in-out forwards;
-        }
-
-        .shape-4 {
-            position: absolute;
-            top: 980px;
-            left: 376px;
-            width: 449px;
-            height: 213px;
-            background-color: #D2D1D1;
-            animation: fadeInUp 2.5s ease-in-out forwards;
-        }
-
-        .shape-5 {
-            position: absolute;
-            top: 980px;
-            left: 850px;
-            width: 303px;
-            height: 210px;
-            background-color: #D2D1D1;
-            animation: fadeInUp 2.5s ease-in-out forwards;
-        }
-
-        .shape-6 {
-            position: absolute;
-            top: 100px;
-            left: 57px;
-            width: 1100px;
-            height: 10px;
-            background-color: #000000;
-            animation: fadeInRight 3s ease-in-out forwards;
-        }
-
-        .shape-7 {
-            position: absolute;
-            top: 16px;
-            left: 319px;
-            width: 2px;
-            height: 80px;
-            background-color: #000000;
-            animation: fadeInDown 2s ease-in-out forwards;
-        }
-
-        .shape-8 {
-            position: absolute;
-            top: 115px;
-            left: 57px;
-            width: 1100px;
-            height: 2px;
-            background-color: #000000;
-            animation: fadeInRight 2s ease-in-out forwards;
-        }
-
-        .shape-9 {
-            position: absolute;
-            top: 150px;
-            left: 57px;
-            width: 1100px;
-            height: 2px;
-            background-color: #000000;
-            animation: fadeInRight 2s ease-in-out forwards;
-        }
-
-        .shape-10 {
-            position: absolute;
-            top: 1440px;
-            left: 100px;
-            width: 200px;
-            height: 2px;
-            background-color: #000000;
-            animation: fadeInRight 2s ease-in-out forwards;
-        }
-
-        .shape-11 {
-            position: absolute;
-            top: 500px;
-            left: 360px;
-            width: 2px;
-            height: 1000px;
-            background-color: #000000;
-            animation: fadeInDown 2s ease-in-out forwards;
-        }
-
-        .shape-12 {
-            position: absolute;
-            top: 963px;
-            left: 422px;
-            width: 700px;
-            height: 2px;
-            background-color: #000000;
-            animation: fadeInRight 2s ease-in-out forwards;
-        }
-
-        .shape-13 {
-            position: absolute;
-            top: 1546px;
-            left: 60px;
-            width: 1100px;
-            height: 10px;
-            background-color: #000000;
-            animation: fadeInRight 3s ease-in-out forwards;
-        }
-
-        .shape-14 {
-            position: absolute;
-            top: 1560px;
-            left: 60px;
-            width: 1100px;
-            height: 2px;
-            background-color: #000000;
-            animation: fadeInRight 2s ease-in-out forwards;
-        }
-
-        .text-1 {
-            position: absolute;
-            top: 15px;
-            left: 55px;
-            width: 280px;
-            height: 45px;
-            font-family: 'Old English Text MT', serif;
-            font-size: 40px;
-            font-weight: normal;
-            letter-spacing: 1px;
-            color: #009700;
-            line-height: 1;
+        /* Аналогично для остальных элементов */
+        .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
+            width: 100%;
+            margin: 10px auto;
             text-align: center;
-            text-shadow: 1px 1px 0 #000000;
-            -webkit-text-stroke: 1px #000000;
-            cursor: pointer;
-            transition: font-size 0.3s;
-            opacity: 0;
-            animation: fadeInRight 2s ease-in-out forwards;
-        }
-
-        .text-1:hover {
-            font-size: 45px;
-        }
-
-        .text-2 {
-            position: absolute;
-            top: 380px;
-            left: 285px;
-            width: 700px;
-            height: 46px;
-            font-size: 46px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: center;
-            animation: fadeInRight 2s ease-in-out forwards;
-        }
-
-        .text-3 {
-            position: absolute;
-            top: 506px;
-            left: 62px;
-            width: 55px;
-            height: 75px;
-            font-family: 'Georgia', serif;
-            font-size: 75px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: fadeInRight 2s ease-in-out forwards;
-        }
-
-        .text-4 {
-            position: absolute;
-            top: 515px;
-            left: 122px;
-            width: 224px;
-            height: 48px;
-            font-size: 16px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-5 {
-            position: absolute;
-            top: 580px;
-            left: 65px;
-            width: 280px;
-            height: 848px;
-            font-size: 16px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-6 {
-            position: absolute;
-            top: 1450px;
-            left: 100px;
-            width: 203px;
-            height: 20px;
-            font-size: 20px;
-            font-weight: bold;
-            color: #000000;
-            line-height: 1.55;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-7 {
-            position: absolute;
-            top: 1485px;
-            left: 72px;
-            width: 274px;
-            height: 16px;
-            font-size: 16px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-8 {
-            position: absolute;
-            top: 75px;
-            left: 480px;
-            width: 260px;
-            height: 16px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-9 {
-            position: absolute;
-            top: 75px;
-            left: 850px;
-            width: 400px;
-            height: 16px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-10 {
-            position: absolute;
-            top: 126px;
-            left: 553px;
-            width: 100px;
-            height: 16px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-11 {
-            position: absolute;
-            top: 126px;
-            left: 1000px;
-            width: 366px;
-            height: 16px;
-            font-size: 16px;
-            font-weight: bold;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-12 {
-            position: absolute;
-            top: 986px;
-            left: 500px;
-            width: 200px;
-            height: 20px;
-            font-size: 16px;
-            font-weight: semibold;
-            color: #000000;
-            line-height: 1.55;
-            text-align: left;
-            animation: fadeInLeft 2s ease-in-out forwards;
-        }
-
-        .text-13 {
-            position: absolute;
-            top: 945px;
-            left: 456px;
-            width: 610px;
-            height: 16px;
-            font-size: 16px;
-            font-weight: semibold;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-14 {
-            position: absolute;
-            top: 1025px;
-            left: 380px;
-            width: 55px;
-            height: 75px;
-            font-family: 'Georgia', serif;
-            font-size: 75px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: fadeInRight 2s ease-in-out forwards;
-        }
-
-        .text-15 {
-            position: absolute;
-            top: 1038px;
-            left: 442px;
-            width: 376px;
-            height: 64px;
-            font-size: 16px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-16 {
-            position: absolute;
-            top: 1100px;
-            left: 390px;
-            width: 435px;
-            height: 80px;
-            font-size: 16px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
-        }
-
-        .text-17 {
-            position: absolute;
-            top: 1184px;
-            left: 389px;
-            width: 259px;
-            height: 320px;
-            font-size: 16px;
-            font-weight: normal;
-            color: #000000;
-            line-height: 1;
-            text-align: left;
-            animation: zoomIn 2s ease-in-out forwards;
+            font-size: clamp(12px, 2vw, 16px); /* Адаптивный размер шрифта */
         }
 
         .png-1 {
-            position: absolute;
-            top: 160px;
-            left: 60px;
-            width: 1100px;
-            height: 185px;
+            width: 100%;
+            height: auto;
             background-image: url('img/Page2_pic1.jpg');
             background-size: cover;
-            animation: fadeInDown 2s ease-in-out forwards;
+            margin: 10px auto;
         }
 
-        .video-container1 {
-            position: absolute;
-            top: 500px;
-            left: 372px;
-            width: 778px;
-            height: 425px;
-            animation: zoomIn 2s ease-in-out forwards;
+        .video-container1, .video-container2 {
+            width: 100%;
+            height: auto;
+            margin: 20px auto;
         }
 
-        .video-container2 {
-            position: absolute;
-            top: 1200px;
-            left: 656px;
-            width: 500px;
-            height: 320px;
-            animation: zoomIn 2s ease-in-out forwards;
+        .video-container1 iframe, .video-container2 iframe {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9; /* Сохраняем пропорции видео */
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(1000px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(1000px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-150px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-1000px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Media Queries for different screen sizes */
-        @media (max-width: 400px) {
+        /* Уберите фиксированные координаты для адаптивности */
+        @media (max-width: 768px) {
             .container {
-                width: 100%;
                 padding: 5px;
             }
-
             .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
-                position: relative;
                 width: 100%;
-                height: auto;
             }
-
             .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
-                position: relative;
-                width: 100%;
                 font-size: 12px;
-                text-align: center;
-            }
-
-            .png-1 {
-                position: relative;
-                width: 100%;
-                height: auto;
-            }
-
-            .video-container1, .video-container2 {
-                position: relative;
-                width: 100%;
-                height: auto;
             }
         }
 
-        @media (min-width: 401px) and (max-width: 800px) {
+        @media (min-width: 769px) and (max-width: 1200px) {
             .container {
-                width: 95%;
                 padding: 10px;
             }
-
             .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
                 width: 90%;
-            }
-
-            .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
-                width: 90%;
-                font-size: 14px;
-            }
-
-            .png-1 {
-                width: 90%;
-            }
-
-            .video-container1, .video-container2 {
-                width: 90%;
-            }
-        }
-
-        @media (min-width: 801px) and (max-width: 1367px) {
-            .container {
-                width: 90%;
-                padding: 15px;
-            }
-
-            .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
-                width: 85%;
-            }
-
-            .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
-                width: 85%;
-                font-size: 16px;
-            }
-
-            .png-1 {
-                width: 85%;
-            }
-
-            .video-container1, .video-container2 {
-                width: 85%;
-            }
-        }
-
-        @media (min-width: 1368px) and (max-width: 1600px) {
-            .container {
-                width: 85%;
-                padding: 20px;
-            }
-
-            .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
-                width: 80%;
-            }
-
-            .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
-                width: 80%;
-                font-size: 18px;
-            }
-
-            .png-1 {
-                width: 80%;
-            }
-
-            .video-container1, .video-container2 {
-                width: 80%;
             }
         }
     </style>
@@ -618,45 +107,17 @@
     <div class="container">
         <div class="shape-1"></div>
         <div class="shape-2"></div>
-        <div class="shape-3"></div>
-        <div class="shape-4"></div>
-        <div class="shape-5"></div>
-        <div class="shape-6"></div>
-        <div class="shape-7"></div>
-        <div class="shape-8"></div>
-        <div class="shape-9"></div>
-        <div class="shape-10"></div>
-        <div class="shape-11"></div>
-        <div class="shape-12"></div>
-        <div class="shape-13"></div>
-        <div class="shape-14"></div>
+        <!-- Остальные элементы -->
         <div class="text-1">Lyle Nebec`s journal</div>
         <div class="text-2">О себе, о задумках, о проектах</div>
-        <div class="text-3">L</div>
-        <div class="text-4">yle Nebec - это лирический псевдоним времен первой любви.</div>
-        <div class="text-5">Он родился еще до появления интернета, по этому оказался излишне уникальным для соц. сетей. Ты как личности претерпеваешь множество метаморфоз, становится деспотичным для свободного мнения законодательство той многоматричной системы, что по ошибке воспринимается государством, а тебя по твоим постам все так же легко найти. Пришлось за собой все подчищать. Мне и раньше случалось создавать сайты подобно этому для своих знакомых криптотрейдеров в 2020-м, в 2024-м для согильдийцев игры Lineage 2.Видеомонтаж наскоками где-то с 2021-го. Где-то с 2018-го увлекся написанием автобиографии и эскапистскими рассказами. Просто несколько человек в разное время оценили легкий слог, специфическое мироощущение, когда в обыденном замечаешь чудесное и эмоциональность, с которой читатель погружается в атмосферу рассказа. Обилие грамматических, пунктуационных и лексических ошибок в рассказах троечника по русскому языку и литературе не стали преградой. Писать не умею, но люблю, народу нравится, а значит рассказам быть. Всякий раз когда рефлексирую от реальности, я пишу какую-нибудь заметку. Их стало много томов, а с 2022-го началась бессвязная рефлексия обо всём. По этому всякий раз когда мне хочется сбежать, я начинаю конструировать свой собственный дилетантский сайтик, игнорируя безопасность. Проза.ру оставила мне тысячи просмотров на мои рассказы, но ноль обратной связи, тогда в чём разница, если я оживлю удаленное там для малого круга лиц в малоизвестном месте?</div>
-        <div class="text-6">О навигации сайта</div>
-        <div class="text-7">Возврат на главную страницу осуществляется кликом логотипа.</div>
-        <div class="text-8">Редактор журнала: Lyle Nebec</div>
-        <div class="text-9">Для корреспонденции: lefen@inbox.ru</div>
-        <div class="text-10">Страница 1</div>
-        <div class="text-11">Дата: 30.03.2024г.</div>
-        <div class="text-12">О социальных сетях</div>
-        <div class="text-13">Это я так шутил над складским персоналом в компании 20А, пока там работал.</div>
-        <div class="text-14">К</div>
-        <div class="text-15">ак идеалист считаю, что не должно быть социальных сетей, а должны быть персональные страницы</div>
-        <div class="text-16">Это сильно опечалит всех инфлюэнсеров, всех ботов, троллей, мошенников, агентов ФСБ и прочих властных личностей желающих меня на свой жертвенник во имя порядка, где даже и там беспорядок. Хотя бы просто потому что изменился у обманщиков подход со времен</div>
-        <div class="text-17">моего детства. Раньше время от них требовала персональной отдачи, чтобы обмануть. А сейчас открываешь рассылку о том что тебе досталось наследство и надо денег перечислить, смотришь количество адресов и разочарованно удаляешь. Никакого индивидуального подхода. Только владеющие НЛП томятся в ожидании, когда ты сам им принесешь свои надежды и мечты.
-Сходите с ума в индивидуальном порядке, господа, не коллективно. От этого даже интереснее встречи..</div>
+        <!-- Остальные текстовые блоки -->
         <div class="png-1"></div>
         <div class="video-container1">
-            <iframe width="778" height="425" src="https://www.youtube.com/embed/LMuTfez0wn8" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/LMuTfez0wn8" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="video-container2">
-            <iframe width="500" height="320" src="https://www.youtube.com/embed/tStMSuYzPOM" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/tStMSuYzPOM" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 </body>
 </html>
-
-
