@@ -18,99 +18,302 @@
         .container {
             width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 10px;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin: 10px auto;
+            position: relative;
+            height: 1560px;
         }
 
-        .main-content {
+        /* Белый фон */
+        .shape-1 {
             width: 100%;
+            height: 100%;
             background-color: #ffffff;
-            min-height: 1560px;
-            margin: 10px 0;
-            padding: 20px;
-            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
-        .content-block {
-            margin: 20px 0;
-            width: 100%;
-        }
-
-        .gray-block {
+        /* Серые блоки */
+        .shape-2 {
+            width: 290px;
+            height: 1027px;
             background-color: #D2D1D1;
-            padding: 20px;
-            margin: 20px 0;
-            width: 100%;
-            box-sizing: border-box;
+            position: absolute;
+            top: 500px;
+            left: 56px;
         }
 
-        .header {
+        .shape-3 {
+            width: 272px;
+            height: 333px;
+            background-color: #D2D1D1;
+            position: absolute;
+            top: 1192px;
+            left: 376px;
+        }
+
+        .shape-4 {
+            width: 449px;
+            height: 213px;
+            background-color: #D2D1D1;
+            position: absolute;
+            top: 980px;
+            left: 376px;
+        }
+
+        .shape-5 {
+            width: 303px;
+            height: 210px;
+            background-color: #D2D1D1;
+            position: absolute;
+            top: 980px;
+            left: 850px;
+        }
+
+        /* Текстовые блоки */
+        .text-1 {
+            position: absolute;
+            top: 15px;
+            left: 55px;
+            width: 280px;
             font-family: 'Old English Text MT', serif;
             font-size: 40px;
+            font-weight: normal;
+            letter-spacing: 1px;
             color: #009700;
+            line-height: 1;
             text-align: center;
-            cursor: pointer;
-            transition: font-size 0.3s;
-            margin: 10px 0;
             text-shadow: 1px 1px 0 #000000;
             -webkit-text-stroke: 1px #000000;
+            cursor: pointer;
+            transition: font-size 0.3s;
         }
 
-        .header:hover {
+        .text-1:hover {
             font-size: 45px;
         }
 
-        .image-container {
-            width: 100%;
+        .text-2 {
+            position: absolute;
+            top: 380px;
+            left: 285px;
+            width: 700px;
+            font-size: 46px;
+            font-weight: normal;
+            color: #000000;
+            line-height: 1;
+            text-align: center;
+        }
+
+        .text-3 {
+            position: absolute;
+            top: 506px;
+            left: 62px;
+            font-family: 'Georgia', serif;
+            font-size: 75px;
+            font-weight: normal;
+            color: #000000;
+            line-height: 1;
+            text-align: left;
+        }
+
+        .text-4 {
+            position: absolute;
+            top: 515px;
+            left: 122px;
+            width: 224px;
+            font-size: 16px;
+            font-weight: normal;
+            color: #000000;
+            line-height: 1;
+            text-align: left;
+        }
+
+        .text-5 {
+            position: absolute;
+            top: 580px;
+            left: 65px;
+            width: 280px;
+            font-size: 16px;
+            font-weight: normal;
+            color: #000000;
+            line-height: 1;
+            text-align: left;
+        }
+
+        /* Остальные текстовые блоки аналогично */
+
+        /* Черные линии */
+        .shape-6, .shape-7, .shape-8, .shape-9, .shape-10, .shape-11, .shape-12, .shape-13, .shape-14 {
+            position: absolute;
+            background-color: #000000;
+        }
+
+        .shape-6 {
+            top: 100px;
+            left: 57px;
+            width: 1100px;
+            height: 10px;
+        }
+
+        .shape-7 {
+            top: 16px;
+            left: 319px;
+            width: 2px;
+            height: 80px;
+        }
+
+        .shape-8 {
+            top: 115px;
+            left: 57px;
+            width: 1100px;
+            height: 2px;
+        }
+
+        .shape-9 {
+            top: 150px;
+            left: 57px;
+            width: 1100px;
+            height: 2px;
+        }
+
+        .shape-10 {
+            top: 1440px;
+            left: 100px;
+            width: 200px;
+            height: 2px;
+        }
+
+        .shape-11 {
+            top: 500px;
+            left: 360px;
+            width: 2px;
+            height: 1000px;
+        }
+
+        .shape-12 {
+            top: 963px;
+            left: 422px;
+            width: 700px;
+            height: 2px;
+        }
+
+        .shape-13 {
+            top: 1546px;
+            left: 60px;
+            width: 1100px;
+            height: 10px;
+        }
+
+        .shape-14 {
+            top: 1560px;
+            left: 60px;
+            width: 1100px;
+            height: 2px;
+        }
+
+        /* Изображение */
+        .png-1 {
+            position: absolute;
+            top: 160px;
+            left: 60px;
+            width: 1100px;
             height: 185px;
-            background-color: #ccc; /* Замените на ваше изображение */
             background-image: url('Page2_pic1.jpg');
             background-size: cover;
-            background-position: center;
-            margin: 20px 0;
         }
 
-        .video-container {
-            width: 100%;
-            margin: 20px 0;
-            height: auto;
-            min-height: 300px;
-        }
-
-        .video-container iframe {
-            width: 100%;
+        /* Видео */
+        .video-container1 {
+            position: absolute;
+            top: 500px;
+            left: 372px;
+            width: 778px;
             height: 425px;
+        }
+
+        .video-container1 iframe {
+            width: 100%;
+            height: 100%;
             border: none;
         }
 
-        .line {
+        .video-container2 {
+            position: absolute;
+            top: 1200px;
+            left: 656px;
+            width: 500px;
+            height: 320px;
+        }
+
+        .video-container2 iframe {
             width: 100%;
-            height: 2px;
-            background-color: #000000;
-            margin: 10px 0;
+            height: 100%;
+            border: none;
         }
 
-        .text-center {
-            text-align: center;
-            margin: 10px 0;
+        /* Анимации */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .text-left {
-            text-align: left;
-            margin: 10px 0;
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Медиа-запросы */
+        @media (max-width: 1200px) {
+            .container {
+                width: 100%;
+            }
+
+            .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
+                width: 90%;
+            }
+
+            .text-1, .text-2, .text-3, .text-4, .text-5 {
+                width: 90%;
+            }
+
+            .png-1 {
+                width: 90%;
+            }
+
+            .video-container1, .video-container2 {
+                width: 90%;
+            }
         }
 
         @media (max-width: 768px) {
-            .header {
-                font-size: 24px;
+            .container {
+                height: auto;
             }
 
-            .video-container iframe {
-                height: 250px;
+            .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
+                position: relative;
+                width: 100%;
+                height: auto;
+                margin: 10px 0;
+            }
+
+            .text-1, .text-2, .text-3, .text-4, .text-5 {
+                position: relative;
+                width: 100%;
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .png-1 {
+                position: relative;
+                width: 100%;
+            }
+
+            .video-container1, .video-container2 {
+                position: relative;
+                width: 100%;
+                height: auto;
             }
         }
     </style>
@@ -119,7 +322,7 @@
             window.location.href = 'Main.html';
         }
         document.addEventListener('DOMContentLoaded', function() {
-            const logo = document.querySelector('.header');
+            const logo = document.querySelector('.text-1');
             if (logo) {
                 logo.addEventListener('click', redirectToMain);
             }
@@ -128,51 +331,35 @@
 </head>
 <body>
     <div class="container">
-        <div class="main-content">
-            <h1 class="header">Lyle Nebec`s journal</h1>
-            <div class="line"></div>
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+        <div class="shape-3"></div>
+        <div class="shape-4"></div>
+        <div class="shape-5"></div>
+        <div class="shape-6"></div>
+        <div class="shape-7"></div>
+        <div class="shape-8"></div>
+        <div class="shape-9"></div>
+        <div class="shape-10"></div>
+        <div class="shape-11"></div>
+        <div class="shape-12"></div>
+        <div class="shape-13"></div>
+        <div class="shape-14"></div>
 
-            <h2 class="text-center">О себе, о задумках, о проектах</h2>
+        <div class="text-1">Lyle Nebec`s journal</div>
+        <div class="text-2">О себе, о задумках, о проектах</div>
+        <div class="text-3">L</div>
+        <div class="text-4">yle Nebec - это лирический псевдоним времен первой любви.</div>
+        <div class="text-5">Он родился еще до появления интернета, по этому оказался излишне уникальным для соц. сетей. Ты как личности претерпеваешь множество метаморфоз, становится деспотичным для свободного мнения законодательство той многоматричной системы, что по ошибке воспринимается государством, а тебя по твоим постам все так же легко найти. Пришлось за собой все подчищать. Мне и раньше случалось создавать сайты подобно этому для своих знакомых криптотрейдеров в 2020-м, в 2024-м для согильдийцев игры Lineage 2.Видеомонтаж наскоками где-то с 2021-го. Где-то с 2018-го увлекся написанием автобиографии и эскапистскими рассказами. Просто несколько человек в разное время оценили легкий слог, специфическое мироощущение, когда в обыденном замечаешь чудесное и эмоциональность, с которой читатель погружается в атмосферу рассказа. Обилие грамматических, пунктуационных и лексических ошибок в рассказах троечника по русскому языку и литературе не стали преградой. Писать не умею, но люблю, народу нравится, а значит рассказам быть. Всякий раз когда рефлексирую от реальности, я пишу какую-нибудь заметку. Их стало много томов, а с 2022-го началась бессвязная рефлексия обо всём. По этому всякий раз когда мне хочется сбежать, я начинаю конструировать свой собственный дилетантский сайтик, игнорируя безопасность. Проза.ру оставила мне тысячи просмотров на мои рассказы, но ноль обратной связи, тогда в чём разница, если я оживлю удаленное там для малого круга лиц в малоизвестном месте?</div>
 
-            <div class="content-block text-left">
-                <div style="font-family: Georgia, serif; font-size: 75px; display: inline-block; vertical-align: top;">L</div>
-                <div style="display: inline-block; margin-left: 10px; vertical-align: top;">
-                    <p>yle Nebec - это лирический псевдоним времен первой любви.</p>
-                    <p>Он родился еще до появления интернета, по этому оказался излишне уникальным для соц. сетей. Ты как личности претерпеваешь множество метаморфоз, становится деспотичным для свободного мнения законодательство той многоматричной системы, что по ошибке воспринимается государством, а тебя по твоим постам все так же легко найти. Пришлось за собой все подчищать. Мне и раньше случалось создавать сайты подобно этому для своих знакомых криптотрейдеров в 2020-м, в 2024-м для согильдийцев игры Lineage 2. Видеомонтаж наскоками где-то с 2021-го. Где-то с 2018-го увлекся написанием автобиографии и эскапистскими рассказами. Просто несколько человек в разное время оценили легкий слог, специфическое мироощущение, когда в обыденном замечаешь чудесное и эмоциональность, с которой читатель погружается в атмосферу рассказа. Обилие грамматических, пунктуационных и лексических ошибок в рассказах троечника по русскому языку и литературе не стали преградой. Писать не умею, но люблю, народу нравится, а значит рассказам быть. Всякий раз когда рефлексирую от реальности, я пишу какую-нибудь заметку. Их стало много томов, а с 2022-го началась бессвязная рефлексия обо всём. По этому всякий раз когда мне хочется сбежать, я начинаю конструировать свой собственный дилетантский сайтик, игнорируя безопасность. Проза.ру оставила мне тысячи просмотров на мои рассказы, но ноль обратной связи, тогда в чём разница, если я оживлю удаленное там для малого круга лиц в малоизвестном месте?</p>
-                </div>
-            </div>
+        <div class="png-1"></div>
 
-            <div class="image-container"></div>
+        <div class="video-container1">
+            <iframe src="https://www.youtube.com/embed/LMuTfez0wn8" allowfullscreen></iframe>
+        </div>
 
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/LMuTfez0wn8" allowfullscreen></iframe>
-            </div>
-
-            <div class="gray-block">
-                <h3 class="text-center">О навигации сайта</h3>
-                <p class="text-left">Возврат на главную страницу осуществляется кликом логотипа.</p>
-            </div>
-
-            <div class="gray-block">
-                <p class="text-left"><strong>Редактор журнала:</strong> Lyle Nebec</p>
-                <p class="text-left"><strong>Для корреспонденции:</strong> lefen@inbox.ru</p>
-                <p class="text-left"><strong>Страница 1</strong></p>
-                <p class="text-left"><strong>Дата:</strong> 30.03.2024г.</p>
-            </div>
-
-            <div class="gray-block">
-                <h3 class="text-center">О социальных сетях</h3>
-                <p class="text-left">Это я так шутил над складским персоналом в компании 20А, пока там работал.</p>
-                <p class="text-left">
-                    <span style="font-family: Georgia, serif; font-size: 3em;">К</span>ак идеалист считаю, что не должно быть социальных сетей, а должны быть персональные страницы.
-                </p>
-                <p class="text-left">Это сильно опечалит всех инфлюэнсеров, всех ботов, троллей, мошенников, агентов ФСБ и прочих властных личностей желающих меня на свой жертвенник во имя порядка, где даже и там беспорядок. Хотя бы просто потому что изменился у обманщиков подход со времен моего детства. Раньше время от них требовала персональной отдачи, чтобы обмануть. А сейчас открываешь рассылку о том что тебе досталось наследство и надо денег перечислить, смотришь количество адресов и разочарованно удаляешь. Никакого индивидуального подхода. Только владеющие НЛП томятся в ожидании, когда ты сам им принесешь свои надежды и мечты.</p>
-                <p class="text-left">Сходите с ума в индивидуальном порядке, господа, не коллективно. От этого даже интереснее встречи..</p>
-            </div>
-
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/tStMSuYzPOM" allowfullscreen></iframe>
-            </div>
+        <div class="video-container2">
+            <iframe src="https://www.youtube.com/embed/tStMSuYzPOM" allowfullscreen></iframe>
         </div>
     </div>
 </body>
