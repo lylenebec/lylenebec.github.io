@@ -49,12 +49,17 @@ body {
 /* Картинка */
 .png-1 {
     width: 100%;
-    height: 200px; /* или другая подходящая высота */
-    background-image: url('Page2_pic1.jpg');
-    background-size: cover;
-    background-position: center;
+    height: 200px; /* или другая высота */
     margin: 10px 0;
-    display: block; /* Убедитесь, что блок отображается */
+    display: block;
+    overflow: hidden;
+}
+
+.png-1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
 }
 
 /* Видео-контейнеры */
@@ -203,4 +208,5 @@ body {
     </div>
 </body>
 </html>
+
 
