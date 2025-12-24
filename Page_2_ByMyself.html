@@ -9,10 +9,10 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            height: 100%;
+            min-height: 100vh;
             background-color: #555555;
-            overflow: auto;
             font-family: 'Roboto', sans-serif;
+            overflow-x: hidden;
         }
 
         .container {
@@ -21,64 +21,101 @@
             margin: 0 auto;
             padding: 10px;
             box-sizing: border-box;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Примеры для адаптивных элементов */
-        .shape-1 {
+        /* Основные блоки */
+        .main-content {
             width: 100%;
-            height: auto;
             background-color: #ffffff;
-            margin: 10px auto;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
         }
 
-        .shape-2 {
+        .sidebar {
             width: 100%;
             max-width: 290px;
-            height: auto;
             background-color: #D2D1D1;
-            margin: 20px auto;
-            animation: fadeInUp 2.5s ease-in-out forwards;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 20px 0;
         }
 
-        /* Аналогично для остальных элементов */
-        .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
+        .content-block {
             width: 100%;
-            margin: 10px auto;
+            background-color: #D2D1D1;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 20px 0;
+        }
+
+        /* Текстовые блоки */
+        .text-center {
             text-align: center;
-            font-size: clamp(12px, 2vw, 16px); /* Адаптивный размер шрифта */
+            margin: 10px 0;
+            font-size: clamp(14px, 2vw, 24px);
         }
 
-        .png-1 {
+        .text-left {
+            text-align: left;
+            margin: 10px 0;
+            font-size: clamp(12px, 1.5vw, 18px);
+        }
+
+        /* Изображения и видео */
+        .image-container {
             width: 100%;
             height: auto;
-            background-image: url('img/Page2_pic1.jpg');
-            background-size: cover;
-            margin: 10px auto;
+            margin: 20px 0;
         }
 
-        .video-container1, .video-container2 {
+        .image-container img {
             width: 100%;
             height: auto;
-            margin: 20px auto;
+            display: block;
         }
 
-        .video-container1 iframe, .video-container2 iframe {
+        .video-container {
             width: 100%;
-            height: auto;
-            aspect-ratio: 16/9; /* Сохраняем пропорции видео */
+            margin: 20px 0;
+            aspect-ratio: 16/9;
         }
 
-        /* Уберите фиксированные координаты для адаптивности */
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Анимации */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 1.5s ease-out forwards;
+        }
+
+        .animate-fadeInRight {
+            animation: fadeInRight 1.5s ease-out forwards;
+        }
+
+        /* Медиа-запросы */
         @media (max-width: 768px) {
             .container {
                 padding: 5px;
             }
-            .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
-                width: 100%;
-            }
-            .text-1, .text-2, .text-3, .text-4, .text-5, .text-6, .text-7, .text-8, .text-9, .text-10, .text-11, .text-12, .text-13, .text-14, .text-15, .text-16, .text-17 {
-                font-size: 12px;
+            .text-center, .text-left {
+                font-size: clamp(12px, 2vw, 16px);
             }
         }
 
@@ -86,38 +123,26 @@
             .container {
                 padding: 10px;
             }
-            .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
-                width: 90%;
-            }
         }
     </style>
     <script>
         function redirectToMain() {
             window.location.href = 'Main.html';
         }
-        document.addEventListener('DOMContentLoaded', function () {
-            const clickableElements1 = document.querySelectorAll('.text-1');
-            clickableElements1.forEach(element => {
-                element.addEventListener('click', redirectToMain);
-            });
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.querySelector('.logo');
+            if (logo) {
+                logo.addEventListener('click', redirectToMain);
+            }
         });
     </script>
 </head>
 <body>
     <div class="container">
-        <div class="shape-1"></div>
-        <div class="shape-2"></div>
-        <!-- Остальные элементы -->
-        <div class="text-1">Lyle Nebec`s journal</div>
-        <div class="text-2">О себе, о задумках, о проектах</div>
-        <!-- Остальные текстовые блоки -->
-        <div class="png-1"></div>
-        <div class="video-container1">
-            <iframe src="https://www.youtube.com/embed/LMuTfez0wn8" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="video-container2">
-            <iframe src="https://www.youtube.com/embed/tStMSuYzPOM" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-</body>
-</html>
+        <!-- Основной контент -->
+        <div class="main-content animate-fadeInUp">
+            <h1 class="text-center logo" style="cursor: pointer; color: #009700; font-family: 'Old English Text MT', serif;">Lyle Nebec`s journal</h1>
+            <h2 class="text-center">О себе, о задумках, о проектах</h2>
+            <div class="text-left">
+                <p><span style="font-family: Georgia, serif; font-size: 4em; line-height: 1;">L</span>yle Nebec - это лирический псевдоним времен первой любви.</p>
+                <p>Он родился еще до появления интернета, по этому оказался излишне уникальным для соц. сетей. Ты как личности претерпеваешь множество метаморфоз, становится деспотичным для свободного мнения законодательство той многоматричной системы, что по ошибке воспринимается государством, а тебя по твоим постам все так же легко найти. Пришлось за собой все подчищать. Мне и раньше случалось создавать сайты подобно этому для своих знакомых криптотрейдеров в 2020-м, в 2024-м для согильдийцев игры Lineage 2. Видеомонтаж наскоками где-то с 2021-го. Где-то с 2018-го увлекся написанием автобиографии и эскапистскими рассказами. Просто несколько человек в разное время оценили легкий слог, специфическое мироощущение, когда в обыденном замечаешь чудесное и эмоциональность, с которой читатель погружается в атмосферу рассказа. Обилие грамматических, пунктуационных 
