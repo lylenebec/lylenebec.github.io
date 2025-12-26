@@ -221,8 +221,8 @@ body {
 
 .text-7 {
     position: absolute;
-    top: 495px;
-    left: 1100px;
+    top: 493px;
+    left: 1103px;
     width: 165px;
     height: 30px;
     font-size: 20px;
@@ -242,6 +242,7 @@ body {
     width: 300px;
     height: 8px;
     background-color: #009700;
+    border: 2px solid #000000;
     animation: fadeInLeft 3s ease-in-out forwards;
     z-index: 3;
 }
@@ -347,6 +348,68 @@ body {
     z-index: 3;
 }
 
+.shape-10 {
+    position: absolute;
+    top: 830px;
+    left: 950px;
+    width: 300px;
+    height: 8px;
+    background-color: #009700;
+    border: 2px solid #000000;
+    animation: fadeInLeft 3s ease-in-out forwards;
+    z-index: 3;
+}
+
+.text-13 {
+    position: absolute;
+    top: 765px;
+    left: 970px;
+    width: 280px;
+    height: 25px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000000;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    transition: font-size 0.3s;
+    opacity: 0;
+    animation: fadeInLeft 2s ease-in-out forwards;
+    z-index: 4;
+}
+
+.text-13:hover {
+    font-size: 27px;
+}
+
+.text-14 {
+    position: absolute;
+    top: 797px;
+    left: 950px;
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: normal;
+    color: #000000;
+    line-height: 1;
+    text-align: left;
+    opacity: 0;
+    animation: zoomIn 2s ease-in-out forwards;
+    z-index: 4;
+
+}
+
+.jpg-2 {
+    position: absolute;
+    top: 600px;
+    left: 966px;
+    width: 260px;
+    height: 122px;
+    background-image: url('img/main_ageofmagic.jpeg');
+    background-size: cover;
+    animation: zoomIn 1s ease-in-out forwards;
+    z-index: 3;
+}
 @keyframes fadeInRight {
     from {
         opacity: 0;
