@@ -35,7 +35,11 @@ body {
     background-color: #D2D1D1;
     z-index: 2;
 }
+ /* Ваш существующий CSS */
+.text-1, .text-8, .text-13 {
+    cursor: pointer; /* Добавляем курсор-указатель */
 
+}
 .text-1 {
     position: absolute;
     top: 1098px;
@@ -453,3 +457,4 @@ body {
         transform: scale(1);
     }
 }
+
