@@ -12,6 +12,9 @@
         function redirectToPage3() {
             window.location.href = 'Page_3_Content_List.html';
         }
+        function redirectToPage10() {
+            window.location.href = 'Page_10_Content_List.html';
+        }
         document.addEventListener('DOMContentLoaded', function () {
             const clickableElements1 = document.querySelectorAll('.text-1');
             clickableElements1.forEach(element => {
@@ -20,6 +23,10 @@
             const clickableElements2 = document.querySelectorAll('.text-8');
             clickableElements2.forEach(element => {
                 element.addEventListener('click', redirectToPage3);
+            });
+            const clickableElements3 = document.querySelectorAll('.text-13');
+            clickableElements2.forEach(element => {
+                element.addEventListener('click', redirectToPage10);
             });
         });
     </script>
@@ -48,9 +55,12 @@
         <div class="text-9">Тут должно быть описание</div>
         <div class="text-10">Lyle Nebec`s</div>
         <div class="text-11">journal</div>
+        <div class="text-13">Age of magic</div>
+        <div class="text-14">"50 оттенков серого"</div>
         <div class="png-2"></div>
         <div class="jpg-1"></div>
+        <div class="shape-10"></div>
+        <div class="jpg-2"></div>
     </div>
 </body>
 </html>
-
