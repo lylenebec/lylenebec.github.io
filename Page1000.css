@@ -1,9 +1,9 @@
-@import url(`Page_1000-keyframes.css`);
-@import url(`Page_1000-base.css`);
-@import url(`Page_1000-400.css`) all and (min-width: 400px);
-@import url(`Page_1000-800.css`) all and (min-width: 800px) and (max-width: 1366px);
-@import url(`Page_1000-1367.css`) all and (min-width: 1367px);
-@import url(`Page_1000-1600.css`) all and (min-width: 1600px);
-@import url(`Page_1000-fix1.css`) all and (min-width: 1367px);
-@import url(`Page_1000-fix2.css`) all and (min-width: 1367px);
-@import url(`Page_1000-bg.css`) all and (min-width: 400px);
+@import url("Page_1000-keyframes.css");
+@import url("Page_1000-base.css");
+@import url("Page_1000-400.css") all and (min-width: 400px);
+@import url("Page_1000-800.css") all and (min-width: 800px) and (max-width: 1366px);
+@import url("Page_1000-1367.css") all and (min-width: 1367px);
+@import url("Page_1000-1600.css") all and (min-width: 1600px);
+@import url("Page_1000-fix1.css") all and (min-width: 1367px);
+@import url("Page_1000-fix2.css") all and (min-width: 1367px);
+@import url("Page_1000-bg.css") all and (min-width: 400px);
