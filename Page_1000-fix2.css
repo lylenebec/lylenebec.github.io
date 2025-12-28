@@ -1,0 +1,132 @@
+/**
+* all and (min-width: 1367px)
+*
+* Anything more than 1367px.
+*Этот медиа-запрос применяется ко всем устройствам с шириной экрана 1367 пикселей и более, а также учитывает условия высокой контрастности в Internet Explorer.
+* http://www.browserhacks.com/
+*/
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: 1367px) {
+
+    .page-wrapper {
+        overflow: hidden; /* Устанавливает скрытие переполнения для элемента с классом .page-wrapper.*/
+    }
+
+    /** $intro */
+
+    header,
+    .summary,
+    .preamble {
+        position: absolute; /* Устанавливает абсолютное позиционирование для элементов header, .summary, и .preamble. */
+    }
+
+    /** $main */
+
+    .main::before,
+    .main::after {
+        display: none;
+    }
+
+    .main {
+        top: 0;
+        right: 0;
+        padding: 0;
+        width: 50%;
+        height: 100%;
+        background: transparent; /* Скрывает псевдоэлементы ::before и ::after для .main.
+Устанавливает позиционирование, отступы, ширину, высоту и прозрачный фон для основного контейнера. */
+    }
+
+        .main div[role="article"] {
+            visibility: hidden;
+            margin-top: -230px;
+            padding: 55px 70px 50px 70px;
+            width: 460px;
+            height: 355px;
+            background: url('img/layer.svg') no-repeat left center;
+            -moz-background-size: auto 100%;
+            -o-background-size: auto 100%;
+            -webkit-background-size: auto 100%;
+            background-size: auto 100%;
+        }
+
+            .main div[role="article"]::before {
+                display: block;
+            }
+
+            .main div[role="article"] h3 {
+                padding: 0 15px;
+                font-size: 36px;
+                line-height: 40px;
+            }
+
+            .main div[role="article"],
+            .main div[role="article"] p {
+                position: absolute;  /* Устанавливает скрытие, отступы, ширину, высоту и фоновое изображение для статей. Показывает псевдоэлемент ::before для статей. Устанавливает стили для заголовков h3 внутри статей.
+Устанавливает абсолютное позиционирование для статей и абзацев внутри них. */
+            }
+
+    footer {
+        position: fixed;
+        margin: -225px 0 0 0;
+        padding: 0;
+        width: 75px;
+        height: 450px; /* Устанавливает фиксированное позиционирование, отступы, ширину и высоту для подвала.*/
+    }
+
+    .zen-validate-html,
+    .zen-validate-css,
+    .zen-license,
+    .zen-github,
+    .zen-accessibility {
+        position: relative;
+        float: none;
+        width: 75px; /* Устанавливает относительное позиционирование, убирает выравнивание по левому краю и устанавливает ширину для перечисленных классов. */
+    }
+
+    /** $sidebar */
+
+    .wrapper {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -280px;
+    }
+
+        .wrapper:hover {
+            position: absolute;
+            top: 60%;
+            left: 0;
+            margin-top: -280px; /* Устанавливает абсолютное позиционирование, позицию и отступы для .wrapper.
+При наведении курсора на .wrapper, изменяет его позицию по вертикали. */
+        }
+
+    .design-selection li a.designer-name {
+        background: #000;
+        background: -ms-linear-gradient(top, #111 45%, #111 45%, #111 50%, transparent 50%, transparent 55%, #111 55%, #111 100%);
+        background: linear-gradient(to bottom, #111 45%, #111 45%, #111 50%, transparent 50%, transparent 55%, #111 55%, #111 100%);
+        color: rgba(255,255,255,.95);
+        text-indent: 100%;
+        font-weight: 900;
+        font-size: 25px; /* Устанавливает фон, цвет текста, отступ текста, жирность шрифта и размер шрифта для ссылок с именами дизайнеров. */
+    }
+}
+
+@media all and (-ms-high-contrast: active), (-ms-high-contrast: none) and (min-width: 1600px) {
+
+    /** $intro */
+
+    header {
+        top: 80px; /* Устанавливает позицию верхнего края элемента <header> на 80 пикселей от верхней границы его контейнера. */
+    }
+
+    /** $sidebar */
+
+    .wrapper {
+        left: 100px;
+    }
+
+        .wrapper:hover {
+            left: 100px; /* Устанавливает позицию левого края элемента .wrapper на 100 пикселей от левого края его контейнера. При наведении курсора на .wrapper, его левая позиция остается на 100 пикселях. */
+        }
+}

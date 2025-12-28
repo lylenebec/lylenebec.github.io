@@ -1,0 +1,39 @@
+/**
+* all and (min-width: 1600px)
+*
+* Anything more than 1600px.
+*/
+/* Этот комментарий указывает, что следующие стили применяются ко всем устройствам с шириной экрана 1600 пикселей и более. */
+
+/** $header */
+
+header {
+    top: 80px; /Устанавливает позицию верхнего края элемента <header> на 80 пикселей от верхней границы его контейнера. Это предполагает, что элемент <header> имеет позиционирование, отличное от static (например, relative, absolute, fixed).*/
+}
+
+/** $main */
+
+.main div[role="article"] {
+    right: 200px; /Устанавливает позицию правого края элемента на 200 пикселей от правого края его контейнера. */
+    -moz-transform: rotateY(-25deg);
+    -ms-transform: scale(1);
+    -o-transform: rotateY(-25deg);
+    -webkit-transform: rotateY(-25deg);
+    transform: rotateY(-25deg); /Эти свойства применяют 3D-вращение элемента вокруг оси Y на -25 градусов. Префиксы (-moz-, -ms-, -o-, -webkit-) используются для поддержки в различных браузерах. Сам стиль будет применяться к тексту div class="main" div role=article */
+
+}
+
+/** $sidebar */
+
+.wrapper {
+    left: 100px;
+    -moz-transform: rotateY(30deg);
+    -ms-transform: translate(0, 0);
+    -o-transform: rotateY(30deg);
+    -webkit-transform: rotateY(30deg);
+    transform: rotateY(30deg); /Эти свойства применяют 3D-вращение элемента вокруг оси Y на 30 градусов. Префиксы используются для поддержки в различных браузерах. Применяется к содеержимому body Если изображение, то img src="your-image.jpg" alt="Пример изображения" class="wrapper"> Если текст то <p class="wrapper">Текст с классом wrapper</p> */
+}
+
+    .wrapper:hover {
+        left: 100px; /При наведении курсора на элемент с классом .wrapper, его левая позиция остается на 100 пикселях от левого края контейнера.*/
+    } 

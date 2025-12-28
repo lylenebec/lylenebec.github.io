@@ -1,0 +1,133 @@
+/**
+* all and (min-width: 1367px)
+*
+* Anything more than 1367px.
+*
+* http://www.browserhacks.com/
+*/
+
+@media all and (min-width: 1367px\0) {
+
+    .page-wrapper {
+        overflow-y: auto; /* Устанавливает автоматическое управление вертикальным переполнением для элемента с классом .page-wrapper.*/
+    }
+
+    /** $intro */
+
+    header,
+    .summary,
+    .preamble {
+        position: fixed; /* Устанавливает фиксированное позиционирование для элементов header, .summary, и .preamble. */
+    }
+
+    /** $main */
+
+    .main::before,
+    .main::after {
+        position: absolute;
+        left: 0;
+        z-index: -1;
+        width: 640px;
+        content: '';
+    }
+
+    .main::before {
+        top: -600px;
+        height: 600px;
+        background: url('img/hook3.svg') no-repeat center bottom, url('img/layer-frame.svg') no-repeat center 541px;
+        -moz-background-size: 520px auto, 640px auto;
+        -o-background-size: 520px auto, 640px auto;
+        -webkit-background-size: 520px auto, 640px auto;
+        background-size: 520px auto, 640px auto;
+        content: '';
+    }
+
+    .main {
+        top: 270px;
+        right: 40px;
+        padding: 0 90px;
+        width: 460px;
+        height: auto;
+        background: url('img/layer-middle.svg') repeat-y center top;
+        -moz-background-size: 640px auto;
+        -o-background-size: 640px auto;
+        -webkit-background-size: 640px auto;
+        background-size: 640px auto;
+    }
+
+        .main::after {
+            bottom: -59px;
+            height: 59px;
+            background: transparent url('img/layer-frame.svg') no-repeat center bottom;
+            -moz-background-size: 640px auto;
+            -o-background-size: 640px auto;
+            -webkit-background-size: 640px auto;
+            background-size: 640px auto; /* Псевдоэлементы ::before и ::after: Устанавливают абсолютное позиционирование, ширину и фоновые изображения. .main: Устанавливает позиционирование, отступы, ширину, высоту и фоновое изображение для основного контейнера. */
+        }
+
+        .main div[role="article"] {
+            visibility: visible;
+            margin-top: 0;
+            padding: 0;
+            width: auto;
+            height: auto;
+            background: transparent;
+        }
+
+            .main div[role="article"]::before {
+                display: none;
+            }
+
+            .main div[role="article"] h3 {
+                padding: 20px 15px 5px 15px;
+                font-size: 31px;
+                line-height: 35px;
+            }
+
+            .main div[role="article"],
+            .main div[role="article"] p {
+                position: static; /* Устанавливает видимость, отступы, ширину, высоту и фон для статей.
+Скрывает псевдоэлемент ::before для статей. Устанавливает стили для заголовков h3 внутри статей. Устанавливает статическое позиционирование для статей и абзацев внутри них. */
+            }
+
+    footer {
+        position: static;
+        margin: 0 64px;
+        padding: 20px 0;
+        width: 325px;
+        height: 75px; /* Устанавливает статическое позиционирование, отступы, ширину и высоту для подвала. */
+    }
+
+    .zen-validate-html,
+    .zen-validate-css,
+    .zen-license,
+    .zen-github,
+    .zen-accessibility {
+        position: static;
+        float: left;
+        width: 65px;
+    }
+
+    .zen-github {
+        width: 55px; /* Устанавливает статическое позиционирование, выравнивание по левому краю и ширину для перечисленных классов. Устанавливает специфическую ширину для .zen-github. */
+    }
+
+    /** $sidebar */
+
+    .wrapper,
+    .wrapper:hover {
+        position: fixed;
+        top: 50%;
+        left: 20px;
+        margin-top: -180px;
+    }
+
+    .design-selection li a.designer-name {
+        background: #fff;
+        color: #000;
+        text-indent: 3px;
+        font-weight: normal;
+        font-size: 20px; /* Устанавливает фиксированное позиционирование, позицию и отступы для .wrapper.
+Устанавливает стили для ссылок с именами дизайнеров: фон, цвет текста, отступ текста, жирность шрифта и размер шрифта. Эти стили обеспечивают адаптивный дизайн для широких экранов, улучшая внешний вид и расположение элементов на странице. */
+    }
+}
