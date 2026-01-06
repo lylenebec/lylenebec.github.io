@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lyle Nebec's Journal</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #555555;
+            overflow: auto; /* Enable scrolling */
+            position: relative; /* Ensure that absolute positioning is relative to the body */
+        }
+
+        .container {
+            position: relative;
+            width: 1200px;
+            height: auto; /* Allow container to expand */
+            margin: 0 auto;
+        }
+
+        .shape-1 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 1190px;
+            height: 1560px;
+            background-color: #ffffff;
+        }
+
+        .shape-2 {
+            position: absolute;
+            top: 161px;
+            left: 360px;
+            width: 800px;
+            height: 1386px;
+            background-color: #1C1B1B;
+            animation: fadeInUp 2.5s ease-in-out forwards;
+        }
+
+        .shape-3, .shape-4, .shape-5, .shape-6, .shape-7, .shape-8, .shape-9 {
+            position: absolute;
+            background-color: #000000;
+        }
+
+        .shape-3 {
+            top: 100px;
+            left: 60px;
+            width: 1100px;
+            height: 10px;
+            animation: fadeInRight 3s ease-in-out forwards;
+        }
+
+        .shape-4 {
+            top: 115px;
+            left: 60px;
+            width: 1100px;
+            height: 2px;
+            animation: fadeInRight 2s ease-in-out forwards;
+        }
+
+        .shape-5 {
+            top: 16px;
+            left: 320px;
+            width: 2px;
+            height: 80px;
+            animation: fadeInDown 2s ease-in-out forwards;
+        }
+
+        .shape-6 {
+            top: 150px;
+            left: 60px;
+            width: 1100px;
+            height: 2px;
+            animation: fadeInRight 2s ease-in-out forwards;
+        }
+
+        .shape-7 {
+            top: 1546px;
+            left: 60px;
+            width: 1100px;
+            height: 10px;
+            animation: fadeInDown 2s ease-in-out forwards;
+        }
+
+        .shape-8 {
+            top: 1560px;
+            left: 60px;
+            width: 1100px;
+            height: 2px;
+            animation: fadeInRight 3s ease-in-out forwards;
+        }
+
+        .shape-9 {
+            top: 1560px;
+            left: 60px;
+            width: 1100px;
+            height: 2px;
+            animation: fadeInRight 2s ease-in-out forwards;
+        }
+
+        .text-1 {
+            position: absolute;
+            top: 15px;
+            left: 55px;
+            width: 280px;
+            height: 39px;
+            font-family: 'Old English Text MT', serif;
+            font-size: 40px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #009700;
+            line-height: 1;
+            text-align: center;
+            text-shadow: 1px 1px 0 #000000;
+            -webkit-text-stroke: 1px #000000;
+            cursor: pointer; /* Изменение курсора при наведении */
+            transition: font-size 0.3s; /* Плавное изменение размера текста */
+            animation: fadeInLeft 2s ease-in-out forwards;
+        }
+
+        .text-1:hover {
+            font-size: 42px; /* Увеличение размера текста на 3px при наведении */
+        }
+
+        .text-2, .text-3, .text-4, .text-5 {
+            position: absolute;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #000000;
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        .text-2 {
+            top: 75px;
+            left: 400px;
+            width: 300px;
+            height: 16px;
+            font-size: 16px;
+        }
+
+        .text-3 {
+            top: 75px;
+            left: 800px;
+            width: 350px;
+            height: 16px;
+            font-size: 16px;
+        }
+
+        .text-4 {
+            top: 126px;
+            left: 553px;
+            width: 100px;
+            height: 16px;
+            font-size: 16px;
+        }
+
+        .text-5 {
+            top: 126px;
+            left: 790px;
+            width: 366px;
+            height: 16px;
+            font-size: 16px;
+            text-align: right;
+        }
+
+        .text-6, .text-7, .text-13 {
+            position: absolute;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            letter-spacing: 1.55px;
+            text-align: center;
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        .text-6 {
+            top: 225px;
+            left: 680px;
+            width: 200px;
+            height: 20px;
+            font-size: 20px;
+            color: #ffffff;
+
+        }
+        .text-7 {
+            top: 265px;
+            left: 420px;
+            width: 685px;
+            height: 20px;
+            font-size: 20px;
+            color: #D7A728;
+
+        }
+
+        .text-8, .text-9, .text-10 {
+            position: absolute;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1.2px;
+            color: #D7A728;
+            text-shadow: 1px 1px 0 #ffffff;
+            cursor: pointer; /* Изменение курсора при наведении */
+            transition: font-size 0.3s; /* Плавное изменение размера текста */
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        .text-8 {
+            top: 312px;
+            left: 420px;
+            width: 720px;
+            height: 16px;
+        }
+        .text-8:hover {
+            font-size: 21px; /* Увеличение размера текста на 1px при наведении */
+
+        }
+        .text-9 {
+            top: 340px;
+            left: 420px;
+            width: 720px;
+            height: 16px;
+        }
+
+        .text-9:hover {
+            font-size: 21px; /* Увеличение размера текста на 1px при наведении */
+        }
+
+        .text-10 {
+            top: 1520px;
+            left: 855px;
+            width: 275px;
+            height: 16px;
+            text-align: right;
+        }
+
+        .text-10:hover {
+            font-size: 21px; /* Увеличение размера текста на 1px при наведении */
+
+        }
+        .text-11 {
+            position: absolute;
+            top: 190px;
+            left: 60px;
+            width: 57px;
+            height: 75px;
+            font-family: 'Georgia', serif;
+            font-size: 75px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #000000;
+            animation: fadeInRight 2s ease-in-out forwards;
+        }
+
+        .text-12 {
+            position: absolute;
+            top: 205px;
+            left: 120px;
+            width: 227px;
+            height: 57px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            letter-spacing: 1.2px;
+            color: #000000;
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        .text-13 {
+            top: 700px;
+            left: 420px;
+            width: 685px;
+            height: 20px;
+            font-size: 20px;
+            color: #D7A728;
+       }
+
+        .text-14 {
+            position: absolute;
+            top: 278px;
+            left: 65px;
+            width: 284px;
+            height: 665px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            letter-spacing: 1.2px;
+            color: #000000;
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(1000px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(1000px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-150px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-300px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+
+    <script>
+        function redirectToMain() {
+            window.location.href = 'Main.html'; // Используйте относительный путь
+        }
+
+        function redirectToPage2() {
+            window.location.href = 'Page_2_ByMyself.html'; // Используйте относительный путь
+        }
+
+        function redirectToPage10() {
+            window.location.href = 'Page_10.html'; // Используйте относительный путь
+        }
+
+        function redirectToPage4() {
+            window.location.href = 'Page_4.html'; // Используйте относительный путь
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const clickableElements1 = document.querySelectorAll('.text-1');
+            clickableElements1.forEach(element => {
+                element.addEventListener('click', redirectToMain);
+            });
+
+            const clickableElements2 = document.querySelectorAll('.text-8');
+            clickableElements2.forEach(element => {
+                element.addEventListener('click', redirectToPage2);
+            });
+
+            const clickableElements3 = document.querySelectorAll('.text-9');
+            clickableElements3.forEach(element => {
+                element.addEventListener('click', redirectToPage10);
+            });
+
+            const clickableElements4 = document.querySelectorAll('.text-10');
+            clickableElements4.forEach(element => {
+                element.addEventListener('click', redirectToPage4);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="shape-1"></div>
+        <div class="shape-2"></div>
+        <div class="shape-3"></div>
+        <div class="shape-4"></div>
+        <div class="shape-5"></div>
+        <div class="shape-6"></div>
+        <div class="shape-7"></div>
+        <div class="shape-8"></div>
+        <div class="shape-9"></div>
+        <div class="text-1">Lyle Nebec's journal</div>
+        <div class="text-2">Редактор журнала: Lyle Nebec</div>
+        <div class="text-3">Для корреспонденции: lefen@inbox.ru</div>
+        <div class="text-4">Страница 1</div>
+        <div class="text-5">Дата: 30.03.2024г.</div>
+        <div class="text-6">Содержание</div>
+        <div class="text-7">Локальные проекты и прочее баловство</div>
+        <div class="text-8"><a href="Page2.html">О себе, о задумаках, о проектах................................................ 1</a></div>
+        <div class="text-9"><a href="Page10.html">О том, что хочется пересматривать ...........................................3</a></div>
+        <div class="text-10"><a href="Page_4_Content_List.html">Следущая страница</a></div>
+        <div class="text-11">Л</div>
+        <div class="text-12">ист содержания будет пополняться по мере увеличения содержания.</div>
+        <div class="text-13">Любопытные новости, возможно даже реклама</div>
+        <div class="text-14">Начиналось это все во время банкротства в 2021-22-м. Я начал создавать первый сайтики на блочной структуре Тильды. Это не коммерческий уровень, очень много нюансов у такого дела на фрилансе, но для баловства подходило. Зашел в какую-нибудь онлайн игру и создал сопроводительный сайт по бухгалтерии, например. Да и народу это было в диковинку. Одно не нравилось мне, мне Тильда бесплатно не хотела отдавать код от моего сайта и ограничивала в страницах (даже не мегабайтах). А ещё, как мне сказал знакомый фрилансер, она мое творчество считает своим. В 2025-м я полез на WordPress, думал перетяну с Тильды свои наработки, благо структура там аналогично блочная. WordPress сказал: "не хочу работать с Тильдой, но если у тебя есть код..." И тут уже психанул я, мол, будет тебе код.
+
+С HTML я познакомился еще в 2004-м в доинтернетные времена, даже увлекло, но 5 толстых книжек в 2004-м против ИИ "Mistral AI" в 2025-м... Победил искусственный интеллект. Я по сути создаю свой глобальный проект локально и просто переношу в WordPress. Даже не страшно если заблокируют, ведь я постепенно пишу страницы кодом.
+
+Меня радует перспектива абстрагироваться от соц. сетей и по сути можно даже подарить людям код. Всегда найдется тот кто умнее, кто энергичнее. Возможно, в этом воображаемом будущем с ИИ или нет научимся приделывать к сайтам различные приблуды для коммутации. 
+
+Пока все в стадии черновой разработки и дизайнерские решения могут резать глаза.</div>
+    </div>
+</body>
+</html>
