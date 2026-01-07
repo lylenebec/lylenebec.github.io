@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lyle Nebec's Journal</title>
     <style>
-        /* Ваши стили остаются без изменений */
         body {
             margin: 0;
             padding: 0;
@@ -23,29 +22,334 @@
             margin: 0 auto;
         }
 
-        /* Остальные стили остаются без изменений */
-        .text-8 a, .text-9 a, .text-10 a {
-            color: inherit; /* Наследует цвет текста */
-            text-decoration: none; /* Убирает подчеркивание */
-            display: block; /* Делает ссылку блочным элементом */
-            width: 100%; /* Занимает всю ширину родительского элемента */
-            height: 100%; /* Занимает всю высоту родительского элемента */
+        .shape-1 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 1190px;
+            height: 1560px;
+            background-color: #ffffff;
         }
 
-        .text-8:hover a, .text-9:hover a, .text-10:hover a {
-            text-decoration: none; /* Убирает подчеркивание при наведении */
+        .shape-2 {
+            position: absolute;
+            top: 161px;
+            left: 360px;
+            width: 800px;
+            height: 1386px;
+            background-color: #1C1B1B;
+            animation: fadeInUp 2.5s ease-in-out forwards;
+        }
+
+        .shape-3, .shape-4, .shape-5, .shape-6, .shape-7, .shape-8, .shape-9 {
+            position: absolute;
+            background-color: #000000;
+        }
+
+        .shape-3 {
+            top: 100px;
+            left: 60px;
+            width: 1100px;
+            height: 10px;
+            animation: fadeInRight 3s ease-in-out forwards;
+        }
+
+        .shape-4 {
+            top: 115px;
+            left: 60px;
+            width: 1100px;
+            height: 2px;
+            animation: fadeInRight 2s ease-in-out forwards;
+        }
+
+        .shape-5 {
+            top: 16px;
+            left: 320px;
+            width: 2px;
+            height: 80px;
+            animation: fadeInDown 2s ease-in-out forwards;
+        }
+
+        .shape-6 {
+            top: 150px;
+            left: 60px;
+            width: 1100px;
+            height: 2px;
+            animation: fadeInRight 2s ease-in-out forwards;
+        }
+
+        .shape-7 {
+            top: 1546px;
+            left: 60px;
+            width: 1100px;
+            height: 10px;
+            animation: fadeInDown 2s ease-in-out forwards;
+        }
+
+        .shape-8 {
+            top: 1560px;
+            left: 60px;
+            width: 1100px;
+            height: 2px;
+            animation: fadeInRight 3s ease-in-out forwards;
+        }
+
+        .shape-9 {
+            top: 1560px;
+            left: 60px;
+            width: 1100px;
+            height: 2px;
+            animation: fadeInRight 2s ease-in-out forwards;
+        }
+
+        .text-1 {
+            position: absolute;
+            top: 15px;
+            left: 55px;
+            width: 280px;
+            height: 39px;
+            font-family: 'Old English Text MT', serif;
+            font-size: 40px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #009700;
+            line-height: 1;
+            text-align: center;
+            text-shadow: 1px 1px 0 #000000;
+            -webkit-text-stroke: 1px #000000;
+            cursor: pointer;
+            transition: font-size 0.3s;
+            animation: fadeInLeft 2s ease-in-out forwards;
+        }
+
+        .text-1:hover {
+            font-size: 42px;
+        }
+
+        .text-2, .text-3, .text-4, .text-5 {
+            position: absolute;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #000000;
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        .text-2 {
+            top: 75px;
+            left: 400px;
+            width: 300px;
+            height: 16px;
+            font-size: 16px;
+        }
+
+        .text-3 {
+            top: 75px;
+            left: 800px;
+            width: 350px;
+            height: 16px;
+            font-size: 16px;
+        }
+
+        .text-4 {
+            top: 126px;
+            left: 553px;
+            width: 100px;
+            height: 16px;
+            font-size: 16px;
+        }
+
+        .text-5 {
+            top: 126px;
+            left: 790px;
+            width: 366px;
+            height: 16px;
+            font-size: 16px;
+            text-align: right;
+        }
+
+        .text-6, .text-7, .text-13 {
+            position: absolute;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            letter-spacing: 1.55px;
+            text-align: center;
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        .text-6 {
+            top: 225px;
+            left: 680px;
+            width: 200px;
+            height: 20px;
+            font-size: 20px;
+            color: #ffffff;
+        }
+
+        .text-7 {
+            top: 265px;
+            left: 420px;
+            width: 685px;
+            height: 20px;
+            font-size: 20px;
+            color: #D7A728;
+        }
+
+        .text-8, .text-9, .text-10 {
+            position: absolute;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            letter-spacing: 1.2px;
+            color: #D7A728;
+            text-shadow: 1px 1px 0 #ffffff;
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        .text-8 {
+            top: 312px;
+            left: 420px;
+            width: 720px;
+            height: 16px;
+        }
+
+        .text-9 {
+            top: 340px;
+            left: 420px;
+            width: 720px;
+            height: 16px;
+        }
+
+        .text-10 {
+            top: 1520px;
+            left: 855px;
+            width: 275px;
+            height: 16px;
+            text-align: right;
+        }
+
+        .text-11 {
+            position: absolute;
+            top: 190px;
+            left: 60px;
+            width: 57px;
+            height: 75px;
+            font-family: 'Georgia', serif;
+            font-size: 75px;
+            font-weight: normal;
+            letter-spacing: 1px;
+            color: #000000;
+            animation: fadeInRight 2s ease-in-out forwards;
+        }
+
+        .text-12 {
+            position: absolute;
+            top: 205px;
+            left: 120px;
+            width: 227px;
+            height: 57px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            letter-spacing: 1.2px;
+            color: #000000;
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        .text-13 {
+            top: 700px;
+            left: 420px;
+            width: 685px;
+            height: 20px;
+            font-size: 20px;
+            color: #D7A728;
+        }
+
+        .text-14 {
+            position: absolute;
+            top: 278px;
+            left: 65px;
+            width: 284px;
+            height: 665px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: normal;
+            letter-spacing: 1.2px;
+            color: #000000;
+            animation: zoomIn 2s ease-in-out forwards;
+        }
+
+        /* Стили для ссылок внутри текстовых блоков */
+        .text-8 a, .text-9 a, .text-10 a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(1000px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(1000px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-150px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-300px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
     </style>
 
     <script>
-        function redirectToMain() {
-            window.location.href = 'index.html';
-        }
-
         document.addEventListener('DOMContentLoaded', function () {
             const clickableElements1 = document.querySelectorAll('.text-1');
             clickableElements1.forEach(element => {
-                element.addEventListener('click', redirectToMain);
+                element.addEventListener('click', function() {
+                    window.location.href = 'index.html';
+                });
             });
         });
     </script>
