@@ -1,73 +1,516 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lyle Nebec's Journal</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        function redirectToPage2() {
-            window.location.href = 'Page_2_ByMyself.html';
-        }
-        function redirectToPage3() {
-            window.location.href = 'Page_3_Content_List.html';
-        }
-        function redirectToPage1000() {
-            window.location.href = 'Page_1000.html';
-        }
-        document.addEventListener('DOMContentLoaded', function () {
-            const clickableElements1 = document.querySelectorAll('.text-1');
-            clickableElements1.forEach(element => {
-                element.addEventListener('click', redirectToPage2);
-            });
-            const clickableElements2 = document.querySelectorAll('.text-8');
-            clickableElements2.forEach(element => {
-                element.addEventListener('click', redirectToPage3);
-            });
-            const clickableElements3 = document.querySelectorAll('.text-13');
-            clickableElements3.forEach(element => {
-                element.addEventListener('click', redirectToPage1000);
-            });
-        });
-    </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lyle Nebec — личное издание</title>
+<style>
+  :root{
+    --ink:#15120f; --paper:#f4efe3; --paper-dim:#ece5d4; --cream:#ece6d4;
+    --oxblood:#6f1f23; --gold:#9a7b3f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+  ::selection{background:rgba(111,31,35,.2)}
+  a{color:inherit;text-decoration:none}
+
+  /* ── Header ─────────────────────────── */
+  .hdr{position:fixed;top:0;left:0;right:0;z-index:40;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+  .hdr.on{background:rgba(244,239,227,.88);border-bottom:1px solid rgba(21,18,15,.14);backdrop-filter:blur(8px)}
+  .hdr-in{max-width:1000px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .brand{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;font-size:15px;letter-spacing:.28em;color:var(--cream);transition:color .4s;background:none;border:0;cursor:pointer}
+  .hdr.on .brand{color:var(--ink)}
+  .nav{display:none;align-items:center;gap:32px}
+  .nav a{font-size:11px;text-transform:uppercase;letter-spacing:.22em;opacity:.85;transition:color .4s,opacity .2s;color:var(--cream)}
+  .hdr.on .nav a{color:var(--ink);opacity:.72}
+  .nav a:hover{opacity:1}
+  @media(min-width:640px){.nav{display:flex}}
+  .mnav-btn{display:flex;flex-direction:column;gap:5px;padding:8px;background:none;border:0;cursor:pointer}
+  .mnav-btn span{display:block;width:20px;height:1px;background:var(--cream);transition:background .4s}
+  .hdr.on .mnav-btn span{background:var(--ink)}
+  .mnav-btn span:last-child{width:12px;margin-left:auto}
+  .mnav-panel{display:none;position:absolute;right:16px;margin-top:12px;padding:12px 20px;flex-direction:column;gap:12px;background:var(--paper);border:1px solid rgba(21,18,15,.16)}
+  .mnav-panel.open{display:flex}
+  .mnav-panel a{font-size:11px;text-transform:uppercase;letter-spacing:.22em;text-align:left;color:var(--ink)}
+  @media(min-width:640px){.mnav-btn{display:none}}
+
+  /* ── Reveal ──────────────────────────── */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+  .rv.in{opacity:1;transform:none}
+
+  /* ── Cover ────────────────────────────── */
+  .cover{position:relative;overflow:hidden;background:var(--ink);color:var(--cream)}
+  .cover-grid{position:absolute;inset:0;opacity:.06;pointer-events:none;
+    background-image:linear-gradient(rgba(236,230,212,.6) 1px,transparent 1px),linear-gradient(90deg,rgba(236,230,212,.6) 1px,transparent 1px);
+    background-size:48px 48px}
+  .cover-glow{position:absolute;top:-25%;right:-25%;width:70vmin;height:70vmin;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle,rgba(154,123,63,.18),transparent 65%)}
+  .cover-in{position:relative;max-width:1000px;margin:0 auto;padding:128px 24px 96px}
+  .hero{display:grid;gap:48px;align-items:end;margin-bottom:96px}
+  @media(min-width:760px){.hero{grid-template-columns:1fr 380px}}
+  .issue{display:flex;align-items:center;gap:16px;margin-bottom:40px;font-size:11px;text-transform:uppercase;letter-spacing:.3em;color:var(--gold);opacity:.85}
+  .issue .sep{opacity:.4}
+  .cover h1{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;line-height:.92;margin-bottom:12px;font-size:clamp(3.4rem,12vw,9rem)}
+  .cover h1 .g{color:var(--gold)}
+  .sub-aka{font-style:italic;margin-bottom:32px;font-size:1.2rem;opacity:.68}
+  .tagline{font-style:italic;max-width:640px;margin-bottom:32px;font-size:clamp(1.2rem,2.4vw,1.7rem);opacity:.82;font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif}
+  .lead{max-width:560px;font-size:15px;line-height:1.75;opacity:.7}
+  .portrait{position:relative;width:100%;max-width:380px;margin-left:auto;aspect-ratio:3/4}
+  .portrait .frame{position:absolute;inset:0;border:1px solid rgba(236,230,212,.22);pointer-events:none;z-index:2}
+  .portrait svg,.portrait img{width:100%;height:100%;display:block;position:absolute;inset:0;object-fit:cover}
+  .portrait .cap{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:9px;text-transform:uppercase;letter-spacing:.3em;color:var(--gold);opacity:.55;z-index:2}
+  .manifesto-block{max-width:640px}
+  .sect-lbl{display:flex;align-items:center;gap:16px;margin-bottom:40px;font-size:11px;text-transform:uppercase;letter-spacing:.34em;color:var(--gold)}
+  .sect-lbl .ln{flex:1;height:1px;background:rgba(236,230,212,.18)}
+  .m-quote{font-style:italic;margin-bottom:40px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.25;opacity:.9}
+  .m-body p{font-size:16px;line-height:1.85;opacity:.78;margin-bottom:24px}
+  .m-sig{margin-top:40px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);opacity:.7}
+  .cover-rule{position:relative;height:1px;width:100%;background:linear-gradient(90deg,transparent,rgba(154,123,63,.5),transparent)}
+
+  /* ── Sections ─────────────────────────── */
+  .sect{padding:96px 0}
+  .sect-in{max-width:1000px;margin:0 auto;padding:96px 24px}
+  .sect-in.narrow{max-width:640px}
+  .slbl{display:flex;align-items:center;gap:16px;margin-bottom:40px}
+  .slbl span{font-size:11px;text-transform:uppercase;letter-spacing:.34em;color:var(--oxblood)}
+  .slbl .ln{flex:1;height:1px;background:rgba(21,18,15,.18)}
+  .sect-intro{font-style:italic;margin-bottom:48px;max-width:560px;font-size:17px;color:var(--ink);opacity:.7}
+  .dark .slbl span{color:var(--gold)}
+  .dark .slbl .ln{background:rgba(236,230,212,.18)}
+  .dark .sect-intro{color:var(--cream);opacity:.72}
+
+  /* ── Blog cards ──────────────────────── */
+  .grid2{display:grid;gap:1px;background:rgba(21,18,15,.14)}
+  @media(min-width:640px){.grid2{grid-template-columns:1fr 1fr}}
+  .card{display:block;text-align:left;width:100%;height:100%;padding:28px;background:var(--paper);border:0;cursor:pointer;font:inherit;color:inherit;transition:background .2s}
+  .card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .card .kind{font-size:10px;text-transform:uppercase;letter-spacing:.26em;color:var(--oxblood)}
+  .card .date{font-size:11px;color:var(--ink);opacity:.45}
+  .card h3{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;font-size:1.6rem;margin-bottom:12px;transition:transform .2s}
+  .card:hover h3{transform:translateY(-2px)}
+  .card p{font-size:14px;line-height:1.7;color:var(--ink);opacity:.68}
+  .card .more{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:10px;text-transform:uppercase;letter-spacing:.24em;color:var(--gold)}
+  .card .more .dot{width:18px;height:1px;background:var(--gold);transition:width .2s}
+  .card:hover .more .dot{width:28px}
+
+  /* ── Creative (files) ────────────────── */
+  .grid3{display:grid;gap:1px;background:rgba(21,18,15,.14)}
+  @media(min-width:640px){.grid3{grid-template-columns:1fr 1fr}}
+  @media(min-width:900px){.grid3{grid-template-columns:1fr 1fr 1fr}}
+  .wcard{padding:28px;background:var(--paper);display:flex;flex-direction:column;height:100%}
+  .wcard .ic-row{display:flex;align-items:center;gap:12px;margin-bottom:20px;color:var(--oxblood)}
+  .wcard .ic-row svg{width:18px;height:18px}
+  .wcard .ttype{font-size:10px;text-transform:uppercase;letter-spacing:.26em;color:var(--oxblood)}
+  .wcard h3{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;font-size:1.35rem;margin-bottom:8px}
+  .wcard .note{font-size:13px;line-height:1.6;color:var(--ink);opacity:.65;flex:1}
+  .wcard .foot{display:flex;align-items:center;justify-content:space-between;margin-top:24px;gap:12px;flex-wrap:wrap}
+  .wcard .meta{font-size:11px;color:var(--ink);opacity:.45}
+  .wcard .acts{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .wcard .act{font-size:10px;text-transform:uppercase;letter-spacing:.24em;color:var(--gold);opacity:.85;transition:opacity .2s;cursor:pointer;background:none;border:0;font-family:inherit;padding:0}
+  .wcard .act:hover{opacity:1}
+  .hint{margin-top:32px;font-size:13px;font-style:italic;color:var(--ink);opacity:.5}
+  .r-audio{width:100%;margin:24px 0;}
+
+  /* ── Diary ───────────────────────────── */
+  .dlist{border-top:1px solid rgba(21,18,15,.14)}
+  .drow{display:block;width:100%;text-align:left;padding:28px 0;border-bottom:1px solid rgba(21,18,15,.14);background:none;border-left:0;border-right:0;border-top:0;cursor:pointer;font:inherit;color:inherit}
+  .drow .row{display:flex;align-items:baseline;gap:20px}
+  .drow .dt{font-family:ui-monospace,'SF Mono','Courier New',monospace;font-size:12px;letter-spacing:.05em;color:var(--oxblood);flex-shrink:0;width:96px}
+  .drow .body{flex:1}
+  .drow h3{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;font-size:1.35rem;margin-bottom:4px}
+  .drow .open{font-size:10px;text-transform:uppercase;letter-spacing:.24em;color:var(--gold);opacity:0;transition:opacity .2s}
+  .drow:hover .open{opacity:1}
+
+  /* ── Cinema ──────────────────────────── */
+  .clist .crow{display:block;width:100%;text-align:left;padding:28px 0;border-bottom:1px solid rgba(236,230,212,.16);background:none;border-left:0;border-right:0;border-top:0;cursor:pointer;font:inherit;color:inherit}
+  .crow .row{display:flex;align-items:baseline;justify-content:space-between;gap:24px}
+  .crow h3{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;font-size:1.8rem;transition:transform .2s}
+  .crow:hover h3{transform:translateX(6px)}
+  .crow .cmeta{font-size:12px;margin-top:4px;letter-spacing:.02em;color:var(--cream);opacity:.55}
+  .crow .stance{font-size:11px;text-transform:uppercase;letter-spacing:.24em;color:var(--gold);opacity:.8;flex-shrink:0;text-align:right}
+
+  /* ── Future ──────────────────────────── */
+  .frow{display:flex;align-items:center;gap:24px;padding:24px 0;border-bottom:1px solid rgba(21,18,15,.14)}
+  .frow .ft{flex:1}
+  .frow h3{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;font-size:1.6rem;margin-bottom:4px}
+  .frow p{font-size:14px;line-height:1.7;max-width:520px;color:var(--ink);opacity:.65}
+  .frow .badge{font-size:10px;text-transform:uppercase;letter-spacing:.28em;padding:4px 12px;color:var(--oxblood);border:1px solid rgba(111,31,35,.4)}
+
+  /* ── Footer ──────────────────────────── */
+  .ftr{padding:64px 0;background:var(--ink);color:var(--cream)}
+  .ftr-in{max-width:1000px;margin:0 auto;padding:0 24px}
+  .ftr-top{display:flex;flex-direction:column;gap:24px}
+  @media(min-width:640px){.ftr-top{flex-direction:row;align-items:flex-end;justify-content:space-between}}
+  .ftr .nm{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;font-size:1.4rem;letter-spacing:.2em}
+  .ftr .sub{font-size:12px;margin-top:8px;letter-spacing:.18em;opacity:.5}
+  .ftr .quote{font-style:italic;font-size:15px;max-width:400px;opacity:.55}
+  .ftr .ln{margin:40px 0;height:1px;background:rgba(236,230,212,.14)}
+  .ftr .bot{display:flex;flex-direction:column;gap:12px;font-size:11px;text-transform:uppercase;letter-spacing:.18em;opacity:.4}
+  @media(min-width:640px){.ftr .bot{flex-direction:row;justify-content:space-between}}
+
+  /* ── Reader modal ────────────────────── */
+  .reader-ov{position:fixed;inset:0;z-index:50;display:flex;justify-content:center;align-items:flex-start;overflow-y:auto;background:rgba(21,18,15,.55);opacity:0;transition:opacity .3s;pointer-events:none}
+  .reader-ov.open{opacity:1;pointer-events:auto}
+  .reader-art{position:relative;width:100%;max-width:640px;margin:0;padding:48px 24px 64px;background:var(--paper);color:var(--ink);transform:translateY(30px);transition:transform .4s cubic-bezier(.22,1,.36,1);flex-shrink:0}
+  @media(min-width:640px){.reader-art{margin:48px auto;padding:64px 64px 64px}}
+  .reader-ov.open .reader-art{transform:none}
+  .reader-close{position:fixed;top:24px;right:24px;z-index:60;font-size:11px;text-transform:uppercase;letter-spacing:.24em;color:var(--ink);opacity:.7;background:var(--paper);border:1px solid rgba(21,18,15,.18);cursor:pointer;padding:8px 14px}
+  .reader-close:hover{opacity:1;color:var(--oxblood);border-color:rgba(111,31,35,.4)}
+  .r-kind{font-size:11px;text-transform:uppercase;letter-spacing:.28em;color:var(--oxblood);margin-bottom:16px}
+  .r-kind.gold{color:var(--gold)}
+  .reader-art h1{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;font-size:2.6rem;line-height:1.05;margin-bottom:32px}
+  .reader-art .r-meta{font-size:14px;margin-bottom:32px;opacity:.6}
+  .r-stance{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:.24em;padding:4px 12px;margin-bottom:32px;color:var(--oxblood);border:1px solid rgba(111,31,35,.4)}
+  .reader-art p{font-size:16px;line-height:1.85;opacity:.88;margin-bottom:20px}
+  .reader-art .r-sig{margin-top:32px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.7}
+  .reader-art .r-img{width:100%;height:auto;display:block;margin:24px 0;border:1px solid rgba(21,18,15,.12)}
+  .reader-art .r-pdf{width:100%;height:70vh;border:1px solid rgba(21,18,15,.16);background:#fff;margin:24px 0}
+  .reader-art .r-download{display:inline-block;margin-top:16px;font-size:10px;text-transform:uppercase;letter-spacing:.24em;color:var(--gold);opacity:.85;transition:opacity .2s;text-decoration:none;cursor:pointer;background:none;border:0;font-family:inherit;padding:0}
+  .reader-art .r-download:hover{opacity:1}
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="shape-1"></div>
-        <div class="shape-2"></div>
-        <div class="text-1">О себе, о задумках, о проектах</div>
-        <div class="text-2">Слева художник Архип Куинжи 1840-1910 г. А справа я (Lyle Nebec) 1985г. на вечере встреч выпускников 2010-го года в своей любимой и безвременно меня покинувшей кошемировой кофте. Правда похожи? Темы под картинками - кликабельные переходы. В будущем вообще все картинки оживут, а сам сайт превратится в толстенький интерактивный журнальчик.</div>
-        <div class="shape-3"></div>
-        <div class="shape-4"></div>
-        <div class="shape-5"></div>
-        <div class="group-1">
-            <div class="shape-6"></div>
-            <div class="text-3">10</div>
-            <div class="text-4">Августа</div>
-            <div class="text-5">2025</div>
-        </div>
-        <div class="text-6">Там где дух живой дышит</div>
-        <div class="png-1"></div>
-        <div class="shape-7"></div>
-        <div class="text-7">Клик на тему</div>
-        <div class="shape-8"></div>
-        <div class="text-8">Лист содержания</div>
-        <div class="text-9">Тут должно быть описание</div>
-        <div class="text-10">Lyle Nebec`s</div>
-        <div class="text-11">journal</div>
-        <div class="text-13">Age of magic</div>
-        <div class="text-14">"50 оттенков серого"</div>
-        <div class="png-2"></div>
-        <div class="jpg-1"></div>
-        <div class="shape-10"></div>
-        <div class="jpg-2"></div>
+
+<!-- Header -->
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <button class="brand" id="brand">LYLE · NEBEC</button>
+    <nav class="nav" id="nav"></nav>
+    <button class="mnav-btn" id="mnavBtn" aria-label="меню"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mnav-panel" id="mnavPanel"></div>
+</header>
+
+<!-- Cover -->
+<section class="cover" id="top">
+  <div class="cover-grid"></div>
+  <div class="cover-glow"></div>
+  <div class="cover-in">
+    <div class="hero">
+      <div>
+        <div class="issue rv"><span>Версия 0.260908</span><span class="sep">/</span><span>Сентябрь · MMXXVI</span></div>
+        <h1 class="rv" style="transition-delay:.1s">Lyle<br><span class="g">Nebec</span></h1>
+        <p class="sub-aka rv" style="transition-delay:.16s">Сказочный персонаж</p>
+        <p class="tagline rv" style="transition-delay:.2s">Мой сайт не для впечатления, а для декларации.</p>
+        <p class="lead rv" style="transition-delay:.32s">Социальные сети — удел тех, чью реакцию можно считать, взвесить и продать. Я вышел из игры и теперь декларирую здесь своё: творчество, дневник, взгляд на сериалы, благотворительность, возможно что-нибудь ещё. Без лайков, без метрик, без угодливости. Сайт от имени одной персоны — и только от неё.</p>
+      </div>
+      <div class="portrait rv" style="transition-delay:.25s">
+        <div class="frame"></div>
+        <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
+          <rect width="300" height="400" fill="#1b1713"/>
+          <ellipse cx="150" cy="148" rx="56" ry="68" fill="#2a241d"/>
+          <path d="M58 400 C58 312, 96 282, 150 282 C204 282, 242 312, 242 400 Z" fill="#2a241d"/>
+          <ellipse cx="150" cy="148" rx="56" ry="68" fill="none" stroke="rgba(154,123,63,0.28)" stroke-width="1"/>
+          <path d="M58 400 C58 312, 96 282, 150 282 C204 282, 242 312, 242 400 Z" fill="none" stroke="rgba(154,123,63,0.28)" stroke-width="1"/>
+        </svg>
+        <img src="img/main_head.jpg" alt="Lyle Nebec — портрет" onerror="this.style.display='none'" />
+        <div class="cap">Lyle Nebec</div>
+      </div>
     </div>
+    <div class="manifesto-block">
+      <div class="sect-lbl"><span>Манифест</span><div class="ln"></div></div>
+      <p class="m-quote rv">«Декларируй своё.»</p>
+      <div class="m-body" id="mbody"></div>
+      <div class="m-sig">— Lyle Nebec</div>
+    </div>
+  </div>
+  <div class="cover-rule"></div>
+</section>
+
+<!-- Blog -->
+<section class="sect" id="blog" style="background:var(--paper)">
+  <div class="sect-in">
+    <div class="slbl"><span>Блог</span><div class="ln"></div></div>
+    <p class="sect-intro rv">Эссе, рассказы, рефлексия и фантасмагории.</p>
+    <div class="grid2" id="blogGrid"></div>
+  </div>
+</section>
+
+<!-- Creative (files) -->
+<section class="sect" id="creative" style="background:var(--paper-dim)">
+  <div class="sect-in">
+    <div class="slbl"><span>Творчество</span><div class="ln"></div></div>
+    <p class="sect-intro rv">Файлы, изображения, видео. Нажмите «Читать», «Слушать» или «Смотреть» для просмотра в окне, «Скачать ↓» — для сохранения.</p>
+    <div class="grid3" id="worksGrid"></div>
+    <p class="hint rv">Файлы лежат в папке img/. Замените заглушки на свои — и карточки начнут открываться.</p>
+  </div>
+</section>
+
+<!-- Diary -->
+<section class="sect" id="diary" style="background:var(--paper)">
+  <div class="sect-in narrow">
+    <div class="slbl"><span>Дневник</span><div class="ln"></div></div>
+    <p class="sect-intro rv">Визуал есть. Размышляю над содержанием. Пока содержание случайное.</p>
+    <div class="dlist" id="diaryList"></div>
+  </div>
+</section>
+
+<!-- Cinema -->
+<section class="sect dark" id="cinema" style="background:var(--ink);color:var(--cream)">
+  <div class="sect-in">
+    <div class="slbl"><span>Сериалы</span><div class="ln"></div></div>
+    <p class="sect-intro rv">Позиция вместо звёзд.</p>
+    <div class="clist" id="cinemaList"></div>
+  </div>
+</section>
+
+<!-- Future -->
+<section class="sect" style="background:var(--paper-dim)">
+  <div class="sect-in narrow">
+    <div class="slbl"><span>Что откроется</span><div class="ln"></div></div>
+    <div id="futureList"></div>
+    <p class="hint rv" style="margin-top:32px">Старею. Уже не завожусь и не горю. Просто экзальтирую...</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="ftr">
+  <div class="ftr-in">
+    <div class="ftr-top">
+      <div>
+        <div class="nm">LYLE · NEBEC</div>
+        <div class="sub">Личное издание · от одной персоны</div>
+      </div>
+      <p class="quote">«Реакция не нужна. Если это чуждо — страница закроется без обиды.»</p>
+    </div>
+    <div class="ln"></div>
+    <div class="bot">
+      <span>© MMXXVI · Lyle Nebec</span>
+      <span>без лайков · без метрик · без угодливости</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Reader modal -->
+<div class="reader-ov" id="readerOv">
+  <button class="reader-close" id="readerClose">закрыть ✕</button>
+  <article class="reader-art" id="readerArt">
+    <div id="readerContent"></div>
+  </article>
+</div>
+
+<script>
+/* ═══ Данные ═══════════════════════════════════════════════════ */
+var MANIFESTO = [
+  "Площадки, что называют себя социальными, устроены просто: человек обозначается, а его реакция снимается. Ты входишь туда, чтобы произвести впечатление, и уходишь — взвешенный, измеренный, проданный, а порой и наказанный за влияние.",
+  "Я декларирую. Мой сайт - не лента и не профиль, а издание от одной персоны.",
+  "Реакция не нужна. Публикуя дневник, я не жду отклика — я оставляю свидетельство. Советуя фильм, я не ищу согласия, а обозначаю позицию. Если вам это чуждо, страница закроется без обиды; если близко — вы вошли без приглашения и сами.",
+  "Здесь будут появляться темы. Сегодня — творчество, дневник, кино. Завтра, возможно, благотворительность: карточки дел с описанием — кому, зачем и куда. Раздел откроется, когда созреет.",
+  "Это всё, что нужно знать об уставе. Остальное — в самих текстах."
+];
+
+var CREATIVE = [
+  {id:"Celestina",kind:"Мультфильм/Мультсериал",title:"Эрнест и Селестина",date:"Дек 2012",
+   excerpt:"Что-то играет в этом мультике по тонким струнам, сентиментальным и детским. Чем-то напоминает даже не машу и медведь а рассказы Анны-Катерины Вестли своей атмосферой.",
+   text:["Эрнест и Селестина: Приключения мышки и медведя. Оказывается прекрасный французско-бельгийский мультфильм о мышке и медведе. Мне нравилась оригинальная звуковая дорожка из-за озвучки мышки. Это тот случай, когда даже агрессивный французский звучит очаровательно. Но в дубляже Пушного и Лазаревой тоже неплохо. В мультике прекрасная рисовка, которая сохраняется и в последующих короткометражках, похожих на Машу и медведя, только всё равно визуально приятнее. Из всего цикла французского Миши и мыши мне понравился этот полный метр. Хотя во Франции он не зашёл. Местный французский видеохостинг мне показывает 4,3 звезды."]},
+  {id:"Dostoevskiy",kind:"Рерайт",title:"Великая Пушкинская речь Достоевского",date:"7 Авг 2026",
+   excerpt:"Тысячи людей пришли послушать скандал, а получили пророчество. В той речи прозвучало 5 идей, что требуют индивидуального переосмысления:",
+   text:["Все проблемы России были предсказаны ещё Фёдором Михайловичем 8 июня 1880 года в Москве в зале Благородного собрания. Старику в сюртуке оставалось жить всего 6 месяцев. Тысячи людей пришли послушать скандал, а получили пророчество. В той речи прозвучало 5 идей, что требуют индивидуального переосмысления: 1) Твоя сила не в том, чтобы стать кем-то другим, а в том, чтобы понять любого. Шекспир писал итальянцев, а выходили англичане. Сервантес, Гёте, Шиллер писали через себя и свой народ, и только у Пушкина испанец выходил испанцем, а англичанин — англичанином. Это не талант. Это свойство русской души, это Божье озарение изменённого сердца. Это способность к полному перевоплощению в другого человека. Русский дар — редчайший дар «понять любого». Сейчас его многие утратили, а тонны лжи на всё сопряжённое с русскостью болью искалеченных душ легли пеплом поверх этой идеи. Дар «понять любого» — не слабость, не всеядность, а особая сила, которую если не используешь, то предаёшь лучшее в себе. 2) Стать «настоящим русским» — это стать братом всех людей, всечеловеком. Русскость — не кровь и не паспорт, а выбор видеть в любом человеке брата. Ненавидящий чужое, закрывающийся от мира, делящий людей на своих и врагов — предательство заложенного в тебе потенциала. 3) Диагноз русского образованного человека (либерала по-нашему) — скиталец. Он презирает свою землю и свой народ, убегая то на Запад, то в красивую идею, то в революцию в поисках счастья и справедливости и не находит их там, потому что ищет во внешнем, а всё внутри. Надо найти себя в себе и подчинить себя себе. 4) Свобода. В Америке произошла подмена понятий. Их статуя Свободы от слова Liberty. Это свобода, которую тебе дают. Но свобода — это то, что ты добываешь сам победами над собой. Усмиришь себя и станешь свободен, как никогда не воображал себе, и великое дело начнёшь, и других свободными сделаешь. 5) Смирись, гордый человек! И прежде всего сломи свою гордость. Смирись, праздный человек! И прежде всего потрудись на родной ниве. Смирение по Достоевскому — это брать за дело без ожидания признания и наград. Именно такие люди и изменяют мир. Не громко кричащий, а тихо работающий."]},
+  {id:"russkiy",kind:"Эссе",title:"Русский - это печать или крест",date:"26 Июл 2026",
+   excerpt:"Родоплеменной уклад был уничтожен, а живая суть осталась. И звучащее как проклятие «русыз» в тюркских наречиях, стало определением живого.",
+   text:["Да это целая печать, как будто крест. И сильно не спроста оно именно в тюркских языках всплыло. Русыз [rusɯz] (Киргизский) — Без семьи. Руссыз [rʊsˈsuz] (Казахский) — Без рода, без племени. Уруссуз [urʊsˈsuz] (Узбекский) — Без рода, без племени. Руссуз [rusˈsuz] (Туркменский) — Без рода, без племени. Русуз [rusˈuz] (Татарский) — Без рода, без племени. Русуз [rusˈuz] (Башкирский) — Без рода, без племени. Оруссуз [orʊsˈsuz] (Карачаево-балкарский) — Без рода, без племени. Русуз [rusˈuz] (Крымскотатарский) — Без рода, без племени. Не было никаких русских (по названию) до Петра, уничтожения Великой Тартарии и падения Московии и Малой Тартарии. Были рода и племена. В них зрела суть, и вот она была посеяна, и звучащее как проклятие «русыз» в тюркских наречиях стало определением живого. Раньше я думал, это прусские захватчики так видоизменились и придумали это слово, но нет. У этого термина вполне конкретный серьёзный смысл. В постах на подобные темы написаны ожидания разочарования, дескать русские обидятся. Лично я от таких смыслов даже воспрял. И благослови Бог даже сепарацию по этому смыслу. Возможно, даже тут действует Божья Воля."]},
+  {id:"himera",kind:"Рерайт",title:"ЮМОР / Рерайт Антон Болдаков 2",date:"2022",
+   excerpt:"Тест ДНК представляется в сознании общества тем, с чем не принято спорить, тем, после чего выносится сразу приговор. В 2002-м году Лидия Фэйрчайлд из США подала заявление на пособие. По стандартной процедуре потребовался тест ДНК и, о чудо, тест показал, что она не мать своим детям, в отличие от отца Джейми Таунсенда.",
+   text:["Прокурор интересовался: «Кто вы?» «Откуда взяли детей?» «Где настоящая мать?» и у Рейчел не было ответов, способных его удовлетворить. На суде, где ни много ни мало, а решался вопрос об изъятии у неё детей, хитроумный адвокат предложил дождаться 4-го и провести ДНК. В родильной палате официальные лица фиксируют рождение, забор материала и получают бумагу: мол, и 4-й не её. Суд в шоке. Ломаются привычные устои. Наличие внутри Рейчел портала, из которого берутся совершенно случайные дети, вполне бы укладывалось в логику. А хитроумный адвокат уже где-то нашёл аналогичный случай. В 1998 году 52-летней бостонской учительнице Карен Киган понадобилась трансплантация почки. Трое её детей согласились быть донорами. Проводится тест ДНК на совместимость, и... двое детей не от неё. После этого учёные кинулись сканировать Лидию вдоль и поперёк и поставили диагноз: Лидия — химера. Вот именно в такой последовательности: сначала дети не ваши, а потом вы не совсем вы. Химера — это существо, в теле которого присутствуют ткани с разными геномами. И с Лидией оказалось так: ДНК детей доказывало родство с их бабушкой, матерью Лидии, но не с ней самой. Анализы разных частей тела показали, что кожа и волосы Лидии содержат один геном, а шейка матки — другой, соответствующий геному её детей. Это называется Тетрагаметный химеризм. То есть, чтобы было понятнее, в начальных стадиях формирования зародышей-близнецов один из зародышей «поглощает» другой. Такое явление не очень редкое — те же «сиамские близнецы» или «дублированные» внутренние органы. В случае с Лидией это были вообще участки тела с совершенно другим ДНК. И только по чистой случайности этим «участком тела» стала матка. В 2006-м в США этому явлению посвятили целую передачу. А 20 лет спустя я нахожу это и удивляюсь."]},
+  {id:"vadu",kind:"Стихотворение",title:"Феоклистов",date:"26 Дек 2024",
+   excerpt:"Мне часто кажется, что я рождён в «аду».",
+   text:["Мне часто кажется, что я рождён в «аду» и этот «ад» меня отчаянно терзает. В нём «черт» клеймил «приспешников орду» и изощрённо ею управляет... Клеймил их «гордостью» и алчностью к деньгам... Они за эти деньги убивают... Но он не контролирует всё сам. Есть те, что «чёртом» этим управляют... Его придумали такие же, как мы... Простые люди, «божие создания». Они сокрыты «пропагандой лжи». У каждого есть имя, номер, звание..."]},
+  {id:"cifrofoi-rubl",kind:"Эссе",title:"Апокалипсис всё ближе",date:"Сен 2026",
+   excerpt:"Никому не пожелал бы умирать сейчас в преддверии великих перемен, ведь жизнь обещает быть страшной и интересной одновременно. С 1 сентября ввели цифровой рубль, а это значит, что всю экономику профильтруют, как почки кровь, в какие-то несколько лет, и ничего по-старому уже не будет.",
+   text:["Было много поисков правды в разговорах о кодах валют 810 и 643, и вот цифровой рубль — это приглашение в этот клуб «избранных», владеющих счётами 643, но на условиях полного поражения в правах в ближайшие 3 года. И тем интересно нынешнее время, что она ультраглобалистская и зарегулирует всех, а кого-то даже выкинет за борт. Цифровой рубль не предполагает умножение его в коммерческом банке, поэтому вклады в ближайшие 3 года либо зарегулируют, либо курс привычных нам бумажных денег отпустят в свободное плавание. Российский нотариат в цифре имеет сомнительный функционал, и если не придумают, как его вписать, то он тоже останется голодным. Вопрос с ЖКХ мне тоже любопытен. Люди ещё восхвалят цифровизацию во всех областях, когда она начнёт облегчать бремя населения, открывать источники поступлений, которые были съедены раньше коррупцией, и огорчать на местах тех, кто только огорчал местных. Восхвалят и не увидят жала. Примерно через 2-3 года я ожидаю такую реальность, где появится безусловный базовый доход и одновременно присутствует система лояльности, которая может и вовсе отключить от денег и от «дивного нового мира». Я раньше писал, что буду жить при другой пенсионной реформе, и вот это похоже на то новое, где не спасут даже сбережения и вклады."]}
+];
+
+var DIARY = [
+  {id:"shum-vydayot-pustotu",date:"04.09.2026",title:"О том, как шум выдаёт пустоту",text:"Гость говорил сорок минут без паузы. Я считал не слова — смыслы. Их было три, и все чужие. Шум — не признак полноты; чаще наоборот. Полный человек молчит дольше, потому что ему есть что переваривать."},
+  {id:"osen-nastupaet",date:"07.09.2026",title:"Осень наступает в деталях",text:"Осень начинается не с листьев. Она начинается с того, что чай пьют двумя руками. Я заметил это сегодня утром и понял: сезон сменился не в календаре, а в хватке."},
+  {id:"tretiy-prosmotr",date:"28.08.2026",title:"Третий просмотр",text:"В третий раз «Зеркало» стало другим. Не фильм изменился — изменилось то, что я принёс. Хорошее произведение не говорят с тобой один раз; оно просто меняет собеседника."},
+  {id:"pochta-bez-otveta",date:"19.08.2026",title:"Письмо без ответа",text:"Написал длинное письмо и не отправил. Это не трусость — это удовольствие оттого, что мысль оформлена и не обязана теперь ни перед кем оправдываться. Несланное письмо честнее отправленного: оно написано для единственного читателя, который этого заслужил — для меня."},
+  {id:"dozhd-v-biblioteke",date:"02.08.2026",title:"Дождь в библиотеке",text:"В читальном зале течёт крыша. Воду ловят в жестяное ведро. Звук капели благороднее, чем звук страниц: первая напоминает, что мир ещё здесь, вторая — что я от него ушёл. Сегодня мне нужны оба."},
+  {id:"ob-odnom-otkaze",date:"21.07.2026",title:"Об одном отказе",text:"Отказался от приглашения, которое было лестным. Лесть — довод для тех, у кого нет своих. У меня есть. Поэтому «нет» прозвучало спокойно, и я впервые не счёл нужным его объяснять."}
+];
+
+var CINEMA = [
+  {id:"koroche",title:"Короче, план такой",orig:"Короче, план такой",director:"Марк Горобец",year:2023,stance:"Жду 2-й сезон",
+   how:["Привлекает своей динамикой и непредсказуемыми поворотами сюжета. Хоть и чувствуется штамп шпионских фильмов, вышеописанное не даст заскучать. Пока вышел первый сезон. Жду второй. Комедия"]},
+  {id:"ya",title:"Я не шучу",orig:"Я не шучу",director:"----",year:2021,stance:"Вышел",
+   how:["Про маму-одиночку на 3х работах, занимающейся стендапом. Наверное, больше мамам-одиночкам зайдет. Не могу объяснить, чем так зацепил. Наверное, цинизмом главной героини, которая если не будет его проявлять, то сойдет с ума. Комедия. Драма"]},
+  {id:"ubit",title:"Убить Риту",orig:"Убить Риту",director:"Мария Агранович",year:2023,stance:"Вышел",
+   how:["«Убить Ри́ту» (другое название — «Хими́чка») — российский криминально-драматический сериал. Про уникальную учительницу химии. Привлекает непредсказуемыми поворотами сюжета. Блудняк, когда каждое действие по спасению лишь ухудшает ситуацию в целом. Много постельных сцен и, как мне показалось, балабановское отношение к обнаженке в принципе."]},
+  {id:"policeiskii",title:"Полицейский с YouTube",orig:"Полицейский с YouTube",director:"Акаки Сахелашвили",year:2023,stance:"Вышел",
+   how:["Про старомодного полицейского, который соприкоснулся с блоггером и неожиданно стал резко медийным, из-за чего вся его жизнь начала подчиняться правилам мирового гидеборовского спектакля, которые не то что он, а даже мои одногодки до конца не понимают. По началу сериал тащит харизма Федора Лаврова, а потом сама атмосфера гидеборовского спектакля, сравнимая разве что с атмосферой сериала «Пацаны». Комедия, Драма. 2 сезона"]},
+  {id:"vampiry",title:"Вампиры средней полосы",orig:"Вампиры средней полосы",director:"Антон Маслов, Дмитрий Грибанов, Алексей Акимов",year:"2021-2026",stance:"Жду 4-й сезон",
+   how:["О жизни смоленских вампиров среди людей. Понравилась актерская игра и режиссерская задумка в изображении древних. Ведь без кровавых мясорубок уровня «Блейд» вампиры воспринимаются просто древними, которые на бытовом уровне собранием качеств выделяются над смертными. Этот режиссерский момент мне и понравился, плюс со Стояновым всё как-то по-домашнему смотрится. Между сезонами из-за украинского конфликта произошла замена Кузнецовой на Стежко, но последняя очень органично вписалась в роль. Детектив, комедия, фэнтези."]},
+  {id:"belovodie",title:"Пока цветет папоротник и Беловодье",orig:"Пока цветет папоротник и Беловодье. Тайна затерянной страны.",director:"Евгений Бедарев",year:2012,stance:"Жду 3-й сезон",
+   how:["Русский телесериал производства компании «ИВД Кино» и кинокомпании «Аристократ». Наверное, самая переигранная и приятная сказка. Персонажи запоминаются. Песни тоже. Комедия, фэнтези, приключения"]},
+  {id:"dva-kholma",title:"Два холма",orig:"Два холма",director:"Сэм Рэйми",year:2022,stance:"Вышел",
+   how:["«Два холма» — российский комедийный фантастический телесериал в жанре постапокалипсис. 2140 год. Страшный вирус выкосил 99.9% мужского населения планеты. Убойное сочетание «Дивный новый мир» и «новые амазонки» в одном флаконе. Можно сказать «не грози южному централу», но по всем гендерным стереотипам. Вышло три сезона. Комедия, фэнтези, приключения"]},
+  {id:"ekstraordinarnaya",title:"Экстраординарная",orig:"Extraordinary",director:"Тоби Макдональд, Дженнифер Шеридан, Nadira Amrani",year:2023,stance:"Вышел",
+   how:["В этой вселенной все имеют суперспособности, которые проявляются к совершеннолетию. Все, кроме главной героини. Смотрится на одном дыхании, так как по подаче напоминает подростковый сериал вроде «Американского пирога». Вышел 2-й сезон. Детектив, комедия, фантастика, фэнтези, боевик, приключения. Великобритания."]},
+  {id:"divnyy-novyy-mir",title:"Дивный новый мир",orig:"Brave New World",director:"Оуэн Харрис",year:2020,stance:"Вышел",
+   how:["Действие происходит в городе-государстве далёкого будущего, где потребление возведено в культ, человечество разбито на касты, и все проблемы решаются с помощью синтетического наркотика — сомы. Однажды двое жителей Нового Лондона оказываются за его пределами в Диких землях и попадают в самый центр кровопролитного восстания. Вместе с ними возвращается один из дикарей. По одним данным, сериал спешно свернули, по другим — анонсировали 2-й сезон, но сроки постоянно сдвигаются. Фантастика, драма. США"]}
+];
+
+var WORKS = [
+  {type:"mp3",title:"Эскапистская опера \"Неприкаянный принц безымянного города Часть 1.\"",note:"Смелая попытка оживить собственные рассказы на базе собственных снов путем придумывания стихотворений и музыки через ИИ SUNO. Так как это взято из души, оно обратно и выстреливает. Мне до сих пор кажется это лучшим из того, что я делал.",meta:"MP3",href:"img/Opera1.mp3"},
+  {type:"image",title:"Иринка из оперы",note:"Иттерация первая в GPT image 2.0. Пробую удержать визуал персоны. Любопытная иттерация, но не то. Сон - это область эмоций и чувств. Снился сон в детстве и я её не уверен что и помню по визуалу. Лишь состояние и эмоции. Можно сказать, что я её выдумываю.",meta:"JPG",href:"img/Irinka.jpg"},
+  {type:"video",title:"Юмор над Мишкой",note:"Осмелел после сертификата по видеомонтажу.",meta:"Видео · 1,5 мин",href:"https://www.youtube.com/watch?v=N-ehQ04kKto"},
+  {type:"video",title:"Серьезное видео По деревням",note:"Большая половина родных и знакомых после съемки умрет, а атмосфера мест изменится так, что только это видео будет напоминанием, что когда-то было иначе.",meta:"Видео · 31,2 мин",href:"https://youtu.be/_WT5J0uPgVo"},
+  {type:"pdf",title:"Журнал узкому игровому сообществу AGE OF MAGIC",note:"Клан Темерия. Инструктаж по войне с Чехословаками.",meta:"PDF",href:"img/instruktazh.pdf"},
+  {type:"pdf",title:"Журнал узкому игровому сообществу AGE OF MAGIC",note:"Клан Темерия. Выпуск 2.",meta:"PDF",href:"img/vypusk2.pdf"}
+];
+
+var FUTURE = [{title:"Благотворительность",note:"Надо восстановить контроль над вещами и придумать визуал карточек."}];
+
+/* ═══ Иконки ═══════════════════════════════════════════════════ */
+function iconSVG(type){
+  if(type==="pdf") return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h4M10 16.5h4"/></svg>';
+  if(type==="image") return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M5 18l4-4 4 3 3-2 4 3"/></svg>';
+  if(type==="mp3") return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>';
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l6 3.5-6 3.5z" fill="currentColor" stroke="none"/></svg>';
+}
+var TYPE_LABEL={pdf:"Документ",image:"Изображение",video:"Видео",mp3:"Аудио"};
+
+/* ═══ Рендер ═══════════════════════════════════════════════════ */
+function el(id){return document.getElementById(id);}
+
+var LINKS=[["Блог","blog"],["Творчество","creative"],["Дневник","diary"],["Сериалы","cinema"]];
+el("nav").innerHTML=LINKS.map(function(l){return '<a href="#'+l[1]+'">'+l[0]+'</a>';}).join("");
+el("mnavPanel").innerHTML=LINKS.map(function(l){return '<a href="#'+l[1]+'">'+l[0]+'</a>';}).join("");
+
+el("mbody").innerHTML=MANIFESTO.map(function(p,i){
+  return '<p class="rv" style="transition-delay:'+(i*0.05)+'s">'+p+'</p>';
+}).join("");
+
+el("blogGrid").innerHTML=CREATIVE.map(function(w,i){
+  return '<div class="rv" style="transition-delay:'+((i%2)*0.08)+'s"><button class="card" data-k="creative" data-id="'+w.id+'">'+
+    '<div class="top"><span class="kind">'+w.kind+'</span><span class="date">'+w.date+'</span></div>'+
+    '<h3>'+w.title+'</h3><p>'+w.excerpt+'</p>'+
+    '<span class="more">Читать <span class="dot"></span></span></button></div>';
+}).join("");
+
+el("worksGrid").innerHTML=WORKS.map(function(w,i){
+  var acts = "";
+  if(w.type==="video"){
+    acts = '<a class="act" href="'+w.href+'" target="_blank" rel="noreferrer">Смотреть →</a>';
+  } else if(w.type==="pdf"){
+    acts = '<button class="act" data-k="work" data-id="'+i+'" data-mode="pdf">Читать →</button>'+
+           '<a class="act" href="'+w.href+'" download>Скачать ↓</a>';
+  } else if(w.type==="mp3"){
+    acts = '<button class="act" data-k="work" data-id="'+i+'" data-mode="mp3">Слушать →</button>'+
+           '<a class="act" href="'+w.href+'" download>Скачать ↓</a>';
+  } else {
+    acts = '<button class="act" data-k="work" data-id="'+i+'" data-mode="image">Смотреть →</button>'+
+           '<a class="act" href="'+w.href+'" download>Скачать ↓</a>';
+  }
+  return '<div class="rv" style="transition-delay:'+((i%3)*0.06)+'s"><div class="wcard">'+
+    '<div class="ic-row">'+iconSVG(w.type)+'<span class="ttype">'+TYPE_LABEL[w.type]+'</span></div>'+
+    '<h3>'+w.title+'</h3><p class="note">'+w.note+'</p>'+
+    '<div class="foot"><span class="meta">'+w.meta+'</span><div class="acts">'+acts+'</div></div></div></div>';
+}).join("");
+
+el("diaryList").innerHTML=DIARY.map(function(d,i){
+  return '<div class="rv" style="transition-delay:'+(i*0.04)+'s"><button class="drow" data-k="diary" data-id="'+d.id+'">'+
+    '<div class="row"><span class="dt">'+d.date+'</span><span class="body"><h3>'+d.title+'</h3><span class="open">Открыть запись</span></span></div></button></div>';
+}).join("");
+
+el("cinemaList").innerHTML=CINEMA.map(function(f,i){
+  return '<div class="rv" style="transition-delay:'+(i*0.05)+'s"><button class="crow" data-k="cinema" data-id="'+f.id+'">'+
+    '<div class="row"><div><h3>'+f.title+'</h3><div class="cmeta">'+f.director+' · '+f.year+' · '+f.orig+'</div></div>'+
+    '<span class="stance">'+f.stance+'</span></div></button></div>';
+}).join("");
+
+el("futureList").innerHTML=FUTURE.map(function(f){
+  return '<div class="frow"><div class="ft"><h3>'+f.title+'</h3><p>'+f.note+'</p></div><span class="badge">скоро</span></div>';
+}).join("");
+
+/* ═══ Reader modal ═══════════════════════════════════════════════ */
+function findItem(kind,id){
+  var src = kind==="creative"?CREATIVE : kind==="diary"?DIARY : CINEMA;
+  for(var i=0;i<src.length;i++){if(src[i].id===id)return src[i];}
+  return null;
+}
+function openReader(kind,id,mode){
+  var item, html="";
+
+  if(kind==="work"){
+    item=WORKS[parseInt(id,10)];
+    if(!item)return;
+    if(mode==="pdf"){
+      html='<div class="r-kind gold">'+TYPE_LABEL[item.type]+' · '+item.meta+'</div><h1>'+item.title+'</h1>';
+      html+='<iframe class="r-pdf" src="'+item.href+'" type="application/pdf"></iframe>';
+      html+='<a class="r-download" href="'+item.href+'" download>Скачать ↓</a>';
+    } else if(mode==="image"){
+      html='<div class="r-kind gold">'+TYPE_LABEL[item.type]+' · '+item.meta+'</div><h1>'+item.title+'</h1>';
+      html+='<p>'+item.note+'</p>';
+      html+='<img class="r-img" src="'+item.href+'" alt="'+item.title+'"/>';
+      html+='<a class="r-download" href="'+item.href+'" download>Скачать ↓</a>';
+    } else if(mode==="mp3"){
+      html='<div class="r-kind gold">'+TYPE_LABEL[item.type]+' · '+item.meta+'</div><h1>'+item.title+'</h1>';
+      html+='<p>'+item.note+'</p>';
+      html+='<audio class="r-audio" src="'+item.href+'" controls></audio>';
+      html+='<a class="r-download" href="'+item.href+'" download>Скачать ↓</a>';
+    }
+    el("readerContent").innerHTML=html;
+    var ov=el("readerOv"); ov.classList.add("open"); document.body.style.overflow="hidden"; ov.scrollTop=0;
+    return;
+  }
+
+  item=findItem(kind,id); if(!item)return;
+
+  if(kind==="creative"){
+    html='<div class="r-kind">'+item.kind+' · '+item.date+'</div><h1>'+item.title+'</h1>';
+    html+=item.text.map(function(p){return '<p>'+p+'</p>';}).join("");
+  } else if(kind==="diary"){
+    html='<div class="r-kind">'+item.date+'</div><h1>'+item.title+'</h1><p>'+item.text+'</p><div class="r-sig">— из дневника</div>';
+  } else {
+    html='<div class="r-kind gold">Сериалы · как смотреть</div><h1>'+item.title+'</h1><div class="r-meta">'+item.director+' · '+item.year+' · '+item.orig+'</div><div class="r-stance">позиция: '+item.stance+'</div>';
+    html+=item.how.map(function(p){return '<p>'+p+'</p>';}).join("");
+  }
+  el("readerContent").innerHTML=html;
+  ov=el("readerOv"); ov.classList.add("open"); document.body.style.overflow="hidden"; ov.scrollTop=0;
+}
+function closeReader(){
+  el("readerOv").classList.remove("open"); document.body.style.overflow="";
+}
+
+/* ═══ События ═══════════════════════════════════════════════════ */
+document.body.addEventListener("click",function(e){
+  var btn=e.target.closest("[data-k]");
+  if(btn){openReader(btn.dataset.k,btn.dataset.id,btn.dataset.mode);return;}
+  if(e.target===el("readerOv")){closeReader();return;}
+});
+el("readerClose").addEventListener("click",closeReader);
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeReader();});
+
+var mnavBtn=el("mnavBtn"), mnavPanel=el("mnavPanel");
+mnavBtn.addEventListener("click",function(){mnavPanel.classList.toggle("open");});
+mnavPanel.addEventListener("click",function(){mnavPanel.classList.remove("open");});
+
+el("brand").addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener("click",function(e){
+    var tid=this.getAttribute("href").slice(1);
+    var t=document.getElementById(tid);
+    if(t){e.preventDefault();var y=t.getBoundingClientRect().top+window.scrollY-60;window.scrollTo({top:y,behavior:"smooth"});}
+  });
+});
+
+var hdr=el("hdr");
+window.addEventListener("scroll",function(){hdr.classList.toggle("on",window.scrollY>40);},{passive:true});
+
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});
+},{threshold:0.12,rootMargin:"0px 0px -80px 0px"});
+document.querySelectorAll(".rv").forEach(function(n){io.observe(n);});
+
+window.addEventListener("load",function(){
+  document.querySelectorAll(".rv").forEach(function(n){
+    var r=n.getBoundingClientRect();
+    if(r.top<window.innerHeight&&r.bottom>0)n.classList.add("in");
+  });
+});
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
+```
